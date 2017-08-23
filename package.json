@@ -1,0 +1,9 @@
+{
+  "name": "the-dag",
+  "version": "0.1.0",
+  "description": "Yet Another Directed Acyclic Graph Implementation ",
+  "main": "index.js",
+  "repository": "https://www.github.com/rakannimer/the-dag",
+  "author": "Rakan Nimer",
+  "license": "MIT"
+}
