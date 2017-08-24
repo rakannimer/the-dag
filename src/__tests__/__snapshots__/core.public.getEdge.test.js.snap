@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`core.public.getEdge exports 1`] = `[Function]`;
+
+exports[`core.public.getEdge gets edge by source and target objects 1`] = `
+Object {
+  "edgeData": Object {},
+  "edgeID": "1_2",
+  "sourceID": 1,
+  "targetID": 2,
+}
+`;
+
+exports[`core.public.getEdge gets edge by source and target objects 2`] = `
+Object {
+  "1_2": Object {
+    "edgeData": Object {},
+    "edgeID": "1_2",
+    "sourceID": 1,
+    "targetID": 2,
+  },
+}
+`;
+
+exports[`core.public.getEdge gets edge by sourceID and targetID objects 1`] = `
+Object {
+  "edgeData": Object {},
+  "edgeID": "1_2",
+  "sourceID": 1,
+  "targetID": 2,
+}
+`;
+
+exports[`core.public.getEdge gets edge by sourceID and targetID objects 2`] = `
+Object {
+  "1_2": Object {
+    "edgeData": Object {},
+    "edgeID": "1_2",
+    "sourceID": 1,
+    "targetID": 2,
+  },
+}
+`;

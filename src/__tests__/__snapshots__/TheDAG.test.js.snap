@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TheDAG exports 1`] = `[Function]`;
+
+exports[`TheDAG is instantiatable 1`] = `TheDAG {}`;

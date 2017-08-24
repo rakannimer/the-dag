@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`core.public.destroy Destroys nodes and edges 1`] = `
+Object {
+  "edges": Object {
+    "1_2": Object {
+      "edgeData": Object {},
+      "edgeID": "1_2",
+      "sourceID": 1,
+      "targetID": 2,
+    },
+  },
+  "nodes": Object {
+    "1": Object {
+      "nodeData": undefined,
+      "nodeID": 1,
+      "possibleTargets": Array [
+        2,
+      ],
+    },
+    "2": Object {
+      "nodeData": undefined,
+      "nodeID": 2,
+      "possibleSources": Array [
+        1,
+      ],
+      "possibleTargets": Array [],
+    },
+  },
+}
+`;
+
+exports[`core.public.destroy exports 1`] = `[Function]`;

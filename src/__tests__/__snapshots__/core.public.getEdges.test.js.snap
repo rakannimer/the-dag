@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`core.public.getEdges Gets edges 1`] = `
+Object {
+  "1_2": Object {
+    "edgeData": Object {},
+    "edgeID": "1_2",
+    "sourceID": 1,
+    "targetID": 2,
+  },
+}
+`;
+
+exports[`core.public.getEdges exports 1`] = `[Function]`;

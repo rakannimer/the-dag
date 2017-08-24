@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`core.public.traverseDepthFirstGenerator exports 1`] = `[Function]`;
+
+exports[`core.public.traverseDepthFirstGenerator traverseDepthFirstGenerator 1`] = `
+Array [
+  3,
+  5,
+  8,
+  6,
+  4,
+  2,
+  3,
+  5,
+  8,
+  6,
+  7,
+]
+`;

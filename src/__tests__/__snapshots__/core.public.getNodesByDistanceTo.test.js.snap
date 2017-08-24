@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`core.public.getNodesByDistanceTo exports 1`] = `[Function]`;
+
+exports[`core.public.getNodesByDistanceTo gets nodes by hops 1`] = `
+Array [
+  Object {
+    "hops": 3,
+    "nodeID": 8,
+  },
+]
+`;
+
+exports[`core.public.getNodesByDistanceTo gets nodes by hops 2`] = `
+Array [
+  Object {
+    "hops": 0,
+    "nodeID": 1,
+  },
+]
+`;

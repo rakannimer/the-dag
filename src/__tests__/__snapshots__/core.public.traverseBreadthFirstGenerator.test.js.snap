@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`core.public.traverseBreadthFirstGenerator exports 1`] = `[Function]`;
+
+exports[`core.public.traverseBreadthFirstGenerator traverseBreadthFirstGenerator 1`] = `
+Array [
+  Object {
+    "hops": 0,
+    "nodeID": 1,
+  },
+  Object {
+    "hops": 1,
+    "nodeID": 3,
+  },
+  Object {
+    "hops": 1,
+    "nodeID": 4,
+  },
+  Object {
+    "hops": 2,
+    "nodeID": 5,
+  },
+  Object {
+    "hops": 2,
+    "nodeID": 6,
+  },
+  Object {
+    "hops": 2,
+    "nodeID": 2,
+  },
+  Object {
+    "hops": 2,
+    "nodeID": 7,
+  },
+  Object {
+    "hops": 3,
+    "nodeID": 8,
+  },
+]
+`;

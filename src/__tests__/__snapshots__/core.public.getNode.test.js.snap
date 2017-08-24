@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`core.public.getNode Gets node 1`] = `
+Object {
+  "nodeData": undefined,
+  "nodeID": 1,
+  "possibleTargets": Array [
+    2,
+  ],
+}
+`;
+
+exports[`core.public.getNode exports 1`] = `[Function]`;
