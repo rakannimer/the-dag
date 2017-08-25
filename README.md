@@ -1,6 +1,7 @@
 # TheDAG
 
 [![CircleCI](https://circleci.com/gh/RakanNimer/the-dag.svg?style=shield&circle-token=0341fbc880e92e058fca0301fd532660039338c6)](https://circleci.com/gh/RakanNimer/the-dag)
+[![codecov](https://codecov.io/gh/RakanNimer/the-dag/branch/master/graph/badge.svg)](https://codecov.io/gh/RakanNimer/the-dag)
 
 ## What is it ?
 
