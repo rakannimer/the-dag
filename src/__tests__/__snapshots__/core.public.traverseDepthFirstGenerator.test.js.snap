@@ -4,16 +4,111 @@ exports[`core.public.traverseDepthFirstGenerator exports 1`] = `[Function]`;
 
 exports[`core.public.traverseDepthFirstGenerator traverseDepthFirstGenerator 1`] = `
 Array [
-  3,
-  5,
-  8,
-  6,
-  4,
-  2,
-  3,
-  5,
-  8,
-  6,
-  7,
+  Object {
+    "nodeData": Object {},
+    "nodeID": 3,
+    "possibleSources": Array [
+      1,
+      4,
+    ],
+    "possibleTargets": Array [
+      5,
+      6,
+    ],
+  },
+  Object {
+    "nodeData": Object {},
+    "nodeID": 5,
+    "possibleSources": Array [
+      3,
+    ],
+    "possibleTargets": Array [
+      8,
+    ],
+  },
+  Object {
+    "nodeData": Object {},
+    "nodeID": 8,
+    "possibleSources": Array [
+      5,
+    ],
+    "possibleTargets": Array [],
+  },
+  Object {
+    "nodeData": Object {},
+    "nodeID": 6,
+    "possibleSources": Array [
+      3,
+    ],
+    "possibleTargets": Array [],
+  },
+  Object {
+    "nodeData": Object {},
+    "nodeID": 4,
+    "possibleSources": Array [
+      1,
+    ],
+    "possibleTargets": Array [
+      2,
+      3,
+      7,
+    ],
+  },
+  Object {
+    "nodeData": Object {
+      "some": "otherData",
+    },
+    "nodeID": 2,
+    "possibleSources": Array [
+      4,
+    ],
+    "possibleTargets": Array [],
+  },
+  Object {
+    "nodeData": Object {},
+    "nodeID": 3,
+    "possibleSources": Array [
+      1,
+      4,
+    ],
+    "possibleTargets": Array [
+      5,
+      6,
+    ],
+  },
+  Object {
+    "nodeData": Object {},
+    "nodeID": 5,
+    "possibleSources": Array [
+      3,
+    ],
+    "possibleTargets": Array [
+      8,
+    ],
+  },
+  Object {
+    "nodeData": Object {},
+    "nodeID": 8,
+    "possibleSources": Array [
+      5,
+    ],
+    "possibleTargets": Array [],
+  },
+  Object {
+    "nodeData": Object {},
+    "nodeID": 6,
+    "possibleSources": Array [
+      3,
+    ],
+    "possibleTargets": Array [],
+  },
+  Object {
+    "nodeData": Object {},
+    "nodeID": 7,
+    "possibleSources": Array [
+      4,
+    ],
+    "possibleTargets": Array [],
+  },
 ]
 `;

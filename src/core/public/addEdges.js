@@ -1,18 +1,24 @@
 const { privateMethods } = require('../private/');
-const { getState, setState } = require('../private/_state');
+const getStateManipulators = require('../private/_getStateManipulators');
 
-const addEdges = (edges = []) => {
+const addEdges = (edges = [], stateManipulators) => {
+  const { getState, setState } = getStateManipulators(stateManipulators);
   const state = getState();
   edges.forEach(edge => {
     const { source, target } = edge;
-    const { edgeID, edgeData, sourceID, targetID } = privateMethods.createEdge({
-      source,
-      target
-    });
+    const { edgeID, edgeData, sourceID, targetID } = privateMethods.createEdge(
+      {
+        source,
+        target
+      },
+      { getState }
+    );
+
     const edgeExists = edgeID in state.edges;
     if (edgeExists) return;
     setState(stateToUpdate => {
       stateToUpdate.edges[edgeID] = { edgeID, edgeData, sourceID, targetID };
+      return stateToUpdate;
     });
     const sourceNode = state.nodes[sourceID];
     setState(stateToUpdate => {
@@ -20,6 +26,7 @@ const addEdges = (edges = []) => {
         sourceNode,
         targetID
       });
+      return stateToUpdate;
     });
 
     const targetNode = state.nodes[targetID];
@@ -28,6 +35,7 @@ const addEdges = (edges = []) => {
         targetNode,
         sourceID
       });
+      return stateToUpdate;
     });
   });
 };

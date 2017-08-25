@@ -1,8 +1,9 @@
 const toposort = require('toposort');
 
-const { getState } = require('../private/_state');
+const getStateManipulators = require('../private/_getStateManipulators');
 
-const isAcyclic = () => {
+const isAcyclic = stateManipulators => {
+  const { getState } = getStateManipulators(stateManipulators);
   const state = getState();
   const edges = Object.keys(state.edges).map(edgeID => [
     state.edges[edgeID].sourceID,

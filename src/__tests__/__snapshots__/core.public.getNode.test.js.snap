@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`core.public.getNode Creates id for node if id not passed in private createNode 1`] = `
+Object {
+  "nodeData": Object {},
+  "nodeID": "FAKE_UUID_V4",
+  "possibleTargets": Array [],
+}
+`;
+
 exports[`core.public.getNode Gets node 1`] = `
 Object {
   "nodeData": undefined,

@@ -1,5 +1,5 @@
 const addPossibleTargets = ({ sourceNode, targetID }) => {
-  const { possibleTargets = [] } = sourceNode;
+  const { possibleTargets } = sourceNode;
   const updatedNode = Object.assign({}, sourceNode, {
     possibleTargets: [...possibleTargets, targetID]
   });

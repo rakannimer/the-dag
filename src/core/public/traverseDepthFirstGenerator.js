@@ -1,10 +1,10 @@
-const FIFO = require('fifo');
-const { getState } = require('../private/_state');
+const getStateManipulators = require('../private/_getStateManipulators');
 
-const traverseDepthFirstGenerator = function*({
-  startingNodeID,
-  visitNode = () => null
-}) {
+const traverseDepthFirstGenerator = function*(
+  { startingNodeID, visitNode = () => null },
+  stateManipulators
+) {
+  const { getState } = getStateManipulators(stateManipulators);
   const state = getState();
   const { possibleTargets } = state.nodes[startingNodeID];
   const possibleTargetCount = possibleTargets.length;
@@ -12,9 +12,12 @@ const traverseDepthFirstGenerator = function*({
 
   for (let i = 0; i < possibleTargetCount; i += 1) {
     const currentNodeID = possibleTargets[i];
-    yield currentNodeID;
+    yield state.nodes[currentNodeID];
     visitNode(state.nodes[currentNodeID]);
-    yield* traverseDepthFirstGenerator({ startingNodeID: currentNodeID });
+    yield* traverseDepthFirstGenerator(
+      { startingNodeID: currentNodeID },
+      stateManipulators
+    );
   }
   return null;
 };

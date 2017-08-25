@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>TheDAG</h1><p><a href="https://circleci.com/gh/RakanNimer/the-dag"><img src="https://circleci.com/gh/RakanNimer/the-dag.svg?style=shield&amp;circle-token=0341fbc880e92e058fca0301fd532660039338c6" alt="CircleCI"></a></p>
+<h2>What is it ?</h2><p>A well-tested data structure to represent data as Directed Unweighted ( for now) Graphs.</p>
+<h2>Why not cal it TheDUG then ?</h2><p>Because its aimed for use cases where the graph is acyclic.</p>
+<p>Adding weights to edges and adding the corresponding traversal and utility methods is something I will add when I need it or when someone is kind enough to submit a PR for it.</p>
+<h2>Installation</h2><pre class="prettyprint source"><code>yarn add the-dag</code></pre><h2>Usage</h2><h3>Instantiate a DAG</h3><details open>
+  <summary>constructor</summary>
+
+<code>javascript
+const TheDAG = require('the-dag');
+const aDAG = new TheDAG(); // You can optionally pass in your own state read/writer</code>
+</details>
+
+
+<h3>Create a simple graph</h3><details open>
+  <summary>addNodes &amp; addEdges ( simple )</summary>
+
+<code>javascript
+aDAG.addNodes([{ nodeID: 1 }, { nodeID: 2 }]);
+aDAG.addEdges([{ source: { nodeID: 1 }, target: { nodeID: 2 } }]);</code>
+</details>
+
+<h3>Destroy graph</h3><details open>
+  <summary>destroy</summary>
+
+<code>javascript
+aDAG.destroy();
+const nodeIDs = Object.keys(aDAG.toJS().nodes);
+// expect(nodeIDs.length).toBe(0);
+const edgeIDs = Object.keys(aDAG.toJS().edges);
+// expect(edgeIDs.length).toBe(0);</code>
+</details>
+
+
+
+<h3>Create aCyclic graph</h3><details open>
+  <summary>addNodes &amp; addEdges</summary>
+
+<code>javascript
+aDAG.addNodes([
+  { nodeID: 1, data: { some: 'data' } },
+  { nodeID: 2, data: { someOther: 'Data' } },
+  { nodeID: 3, data: {} },
+  { nodeID: 4, data: {} },
+  { nodeID: 5, data: {} },
+  { nodeID: 6, data: {} },
+  { nodeID: 7, data: {} },
+  { nodeID: 8, data: {} }
+]);
+
+aDAG.addEdges([
+  { source: 1, target: 3 },
+  { source: 1, target: 4 },
+  { source: 3, target: 5 },
+  { source: 3, target: 6 },
+  { source: 4, target: 2 },
+  { source: 4, target: 7 },
+  { source: 5, target: 8 }
+]);</code>
+</details>
+
+<h3>Get distance from one node to another</h3><details open>
+  <summary>getDistanceTo</summary>
+
+<code>javascript
+/* Get distance or number of hops required to go from one node to another */
+const distanceFromNodeOneToNodeTwo = aDAG.getDistanceTo({
+  sourceNodeID: 1,
+  targetNodeID: 2
+});
+
+// expect(distanceFromNodeOneToNodeTwo).toBe(2);</code>
+</details>
+
+
+<h3>API</h3><details open>
+  <summary>API Usage Demo</summary>
+
+<code>javascript
+/* Get edge by source and target ids */
+const edgeFromOneToThree = aDAG.getEdge({
+  source: 1,
+  target: 3
+});
+expect(edgeFromOneToThree).toMatchSnapshot(
+  'Get edge by source and target ids'
+);
+
+/* Get edge by source and target nodes */
+const edgeFromOneToThreeUsingNodes = aDAG.getEdge({
+  source: { nodeID: 1, nodeData: {} },
+  target: { nodeID: 3, nodeData: {} }
+});
+expect(edgeFromOneToThree).toEqual(edgeFromOneToThreeUsingNodes);
+
+/* Get all DAG edges */
+const allDAGEdges = aDAG.getEdges();
+expect(allDAGEdges).toMatchSnapshot('Get all DAG edges');
+
+/* Get all DAG nodes */
+const allDAGNodes = aDAG.getNodes();
+expect(allDAGNodes).toMatchSnapshot('Get all DAG nodes');
+
+
+/* Check if node exists */
+expect(aDAG.nodeExists(1)).toBe(true);
+expect(aDAG.nodeExists({ nodeID: 1 })).toBe(true);
+
+/* Get edge ID */
+expect(aDAG.getEdgeID({ source: 1, target: 2 })).toBe('1_2');
+expect(
+  aDAG.getEdgeID({ source: { nodeID: 1 }, target: { nodeID: 2 } })
+).toBe('1_2');
+
+
+/* Get node by id */
+const nodeOne = aDAG.getNode({
+  nodeID: 1,
+  nodeData: {}
+});
+expect(nodeOne).toMatchSnapshot('Get node by id');
+
+/* Get nodes by relative distance */
+const nodesTwoHopsAway = aDAG.getNodesByDistanceTo({
+  sourceNodeID: 1,
+  hops: 2
+});
+expect(nodesTwoHopsAway).toMatchSnapshot('Get nodes by relative distance');
+
+/* Check for acyclicity and get topologically sorted array */
+const { isAcyclic, topologicallySortedNodeIDs } = aDAG.isAcyclic();
+expect({ isAcyclic, topologicallySortedNodeIDs }).toMatchSnapshot(
+  'Check for acyclicity and get topologically sorted array'
+);
+
+/* Traverse the graph breadth first synchronously */
+const visitNode = jest.fn();
+const syncTraversalResult = aDAG.traverseBreadthFirst({
+  startingNodeID: 1,
+  visitNode
+});
+expect(syncTraversalResult).toMatchSnapshot(
+  'Traverse the graph breadth first synchronously'
+);
+expect(visitNode.mock.calls).toMatchSnapshot(
+  'Traverse the graph breadth first synchronously visitNode calls'
+);
+
+/* Traverse the graph breadth first using generators */
+const nodeIterator = aDAG.traverseBreadthFirstGenerator({
+  startingNodeID: 1
+});
+let currentNode = nodeIterator.next();
+let orderedNodes = [];
+while (!currentNode.done) {
+  orderedNodes.push(currentNode.value);
+  currentNode = nodeIterator.next();
+}
+expect(orderedNodes).toEqual(syncTraversalResult);</code>
+</details>
+
+
+<p>Read <a href="/src/__tests__/">tests</a> and <a href="/src/__tests__/__snapshots/TheDAG.test.js.snap">snapshots</a> for more usage information.</p>
+<h2>Development</h2><pre class="prettyprint source lang-sh"><code>git clone https://github.com/rakannimer/the-dag
+cd the-dag && yarn install
+yarn test ## To make sure everything is setup correctly</code></pre><h2>License</h2><p><a href="/LICENSE">MIT</a></p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="TheDAG.html">TheDAG</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Fri Aug 25 2017 14:05:15 GMT+0300 (EEST)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,7 +1,11 @@
 const FIFO = require('fifo');
-const { getState } = require('../private/_state');
+const getStateManipulators = require('../private/_getStateManipulators');
 
-const traverseBreadthFirst = ({ startingNodeID, visitNode = () => null }) => {
+const traverseBreadthFirst = (
+  { startingNodeID, visitNode = () => null },
+  stateManipulators
+) => {
+  const { getState } = getStateManipulators(stateManipulators);
   const state = getState();
   const nodesBFT = [];
   const visitedNodes = {};

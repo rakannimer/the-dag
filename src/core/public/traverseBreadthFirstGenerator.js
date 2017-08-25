@@ -1,12 +1,12 @@
 const FIFO = require('fifo');
-const { getState } = require('../private/_state');
 
-const traverseBreadthFirstGenerator = function*({
-  startingNodeID,
-  visitNode = () => null
-}) {
-  // const state = getState();
+const getStateManipulators = require('../private/_getStateManipulators');
 
+const traverseBreadthFirstGenerator = function*(
+  { startingNodeID, visitNode = () => null },
+  stateManipulators
+) {
+  const { getState } = getStateManipulators(stateManipulators);
   const nodesBFT = [];
   const visitedNodes = {};
   const fifo = FIFO();

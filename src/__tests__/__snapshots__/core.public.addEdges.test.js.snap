@@ -60,7 +60,39 @@ Object {
 }
 `;
 
+exports[`core.public.addEdges Works with custom state handlers passed down to it 1`] = `
+Object {
+  "edges": Object {
+    "1_2": Object {
+      "edgeData": Object {},
+      "edgeID": "1_2",
+      "sourceID": 1,
+      "targetID": 2,
+    },
+  },
+  "nodes": Object {
+    "1": Object {
+      "nodeData": undefined,
+      "nodeID": 1,
+      "possibleTargets": Array [
+        2,
+      ],
+    },
+    "2": Object {
+      "nodeData": undefined,
+      "nodeID": 2,
+      "possibleSources": Array [
+        1,
+      ],
+      "possibleTargets": Array [],
+    },
+  },
+}
+`;
+
 exports[`core.public.addEdges addEdges throws if source and/or target are not registered nodes in state 1`] = `"Couldn't find source node 1"`;
+
+exports[`core.public.addEdges addEdges throws if source and/or target are not registered nodes in state 2`] = `"Couldn't find source node 2"`;
 
 exports[`core.public.addEdges addEdges works when source and target exist in state 1`] = `
 Object {

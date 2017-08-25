@@ -3,9 +3,9 @@ const createStateManipulators = () => {
     nodes: {},
     edges: {}
   };
-  const initState = initialState => {
-    state = initialState;
-  };
+  // const initState = initialState => {
+  //   state = initialState;
+  // };
   const getState = () => {
     return state;
   };
@@ -13,13 +13,22 @@ const createStateManipulators = () => {
   const setState = stateMutator => {
     stateMutator(state);
   };
-  return { state, initState, getState, setState };
+  return {
+    state,
+    // initState,
+    getState,
+    setState
+  };
 };
 
-const { initState, getState, setState } = createStateManipulators();
+const {
+  // initState,
+  getState,
+  setState
+} = createStateManipulators();
 
 module.exports = {
-  initState,
+  // initState,
   getState,
   setState,
   createStateManipulators

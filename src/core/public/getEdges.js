@@ -1,6 +1,7 @@
-const { getState } = require('../private/_state');
+const getStateManipulators = require('../private/_getStateManipulators');
 
-const getEdges = () => {
+const getEdges = stateManipulators => {
+  const { getState } = getStateManipulators(stateManipulators);
   const state = getState();
   return state.edges;
 };
