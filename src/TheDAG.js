@@ -1,4 +1,3 @@
-const { privateMethods } = require('./core/private');
 const getStateManipulators = require('./core/private/_getStateManipulators');
 const { publicMethods } = require('./core/public');
 
@@ -17,35 +16,6 @@ class TheDAG {
   constructor(stateManipulators) {
     this.stateManipulators = getStateManipulators(stateManipulators);
   }
-
-  // _generateEdgeIDFromSourceAndTargetIDs({ sourceID, targetID }) {
-  //   const { generateEdgeIDFromSourceAndTargetIDs } = privateMethods;
-  //   return generateEdgeIDFromSourceAndTargetIDs(
-  //     {
-  //       sourceID,
-  //       targetID
-  //     },
-  //     this.stateManipulators
-  //   );
-  // }
-  // _createNode(node = { nodeID: null, data: {} }) {
-  //   const { createNode } = privateMethods;
-  //   return createNode(node, this.stateManipulators);
-  // }
-
-  // _createEdge(edge = { source: 'sourceNodeID', target: 'targetNodeID' }) {
-  //   const { createEdge } = privateMethods;
-  //   return createEdge(edge, this.stateManipulators);
-  // }
-
-  // _addPossibleTargets({ sourceNode, targetID }) {
-  //   const { addPossibleTargets } = privateMethods;
-  //   return addPossibleTargets({ sourceNode, targetID }, this.stateManipulators);
-  // }
-  // _addPossibleSources({ targetNode, sourceID }) {
-  //   const { addPossibleSources } = privateMethods;
-  //   return addPossibleSources({ targetNode, sourceID }, this.stateManipulators);
-  // }
 
   nodeExists(node) {
     const nodeID = node.nodeID ? node.nodeID : node;
