@@ -10,7 +10,7 @@
     "precommit": "npm run prepublish",
     "docs": "jsdoc src/TheDAG.js -c .jsdoc.json -R README.md -d docs/",
     "test": "jest",
-    "test-ci": "npm run lint && jest --runInBand",
+    "test-ci": "npm run lint && jest --runInBand --coverage",
     "prettier": "prettier --write --single-quote src/core/**/*.js src/*.js",
     "lint": "eslint src/core/**/*.js src/*.js",
     "prepublish": "npm run prettier && npm run lint  && npm run test && npm run docs"
