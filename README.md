@@ -10,7 +10,8 @@ A well-tested data structure to represent data as Directed Unweighted ( for now)
 
 Because its aimed for use cases where the graph is acyclic.
 
-Adding weights to edges and adding the corresponding traversal and utility methods is something I will add when I need it or when someone is kind enough to submit a PR for it.
+Adding weights support to edges and the corresponding traversal and utility methods is something I will add when I need it or when someone is kind enough to submit a PR for it.
+
 
 
 ## Installation
@@ -18,6 +19,8 @@ Adding weights to edges and adding the corresponding traversal and utility metho
 ```
 yarn add the-dag
 ```
+
+## [Full API documentation](https://rakannimer.github.io/the-dag/TheDAG.html)
 
 ## Usage
 
