@@ -7,17 +7,25 @@
   "author": "Rakan Nimer",
   "license": "MIT",
   "scripts": {
-    "precommit": "npm run prepublish",
+    "precommit": "npm run prettier && npm run lint  && npm run test && npm run docs",
     "docs": "jsdoc src/TheDAG.js -c .jsdoc.json -R README.md -d docs/",
     "test": "jest",
     "test-ci": "npm run lint && jest --runInBand --coverage",
     "prettier": "prettier --write --single-quote src/core/**/*.js src/*.js",
     "lint": "eslint src/core/**/*.js src/*.js",
-    "prepublish": "npm run prettier && npm run lint  && npm run test && npm run docs"
+    "prepublish": "npm run test && npm run docs"
   },
   "jest": {
     "setupFiles": ["./jestSetup.js"],
-    "collectCoverageFrom": ["src/core/**/*.js", "src/*.js"]
+    "collectCoverageFrom": ["src/core/**/*.js", "src/*.js"],
+    "coverageThreshold": {
+      "global": {
+        "branches": 95,
+        "functions": 95,
+        "lines": 95,
+        "statements": 95
+      }
+    }
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
