@@ -20,4 +20,4 @@ dependencies:
 
 test:
   override:
-    - npm run test -- --runInBand
+    - npm run test-ci
