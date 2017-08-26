@@ -1,4 +1,4 @@
-const getStateManipulators = require('../private/_getStateManipulators');
+import getStateManipulators from '../private/_getStateManipulators';
 
 const nodeExists = (nodeID, stateManipulators) => {
   const { getState } = getStateManipulators(stateManipulators);
@@ -6,4 +6,4 @@ const nodeExists = (nodeID, stateManipulators) => {
   return nodeID in state.nodes;
 };
 
-module.exports = nodeExists;
+export default nodeExists;

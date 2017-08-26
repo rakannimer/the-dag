@@ -1,8 +1,8 @@
-const addEdges = require('../core/public/addEdges');
-const addNodes = require('../core/public/addNodes');
-const destroy = require('../core/public/destroy');
+import addEdges from '../core/public/addEdges';
+import addNodes from '../core/public/addNodes';
+import destroy from '../core/public/destroy';
 
-const getStateManipulators = require('../core/private/_getStateManipulators');
+import getStateManipulators from '../core/private/_getStateManipulators';
 
 // const { getState } = require('../core/private/_state');
 describe('core.public.destroy', () => {

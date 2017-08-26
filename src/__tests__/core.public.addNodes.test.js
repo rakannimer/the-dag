@@ -1,5 +1,5 @@
-const addNodes = require('../core/public/addNodes');
-const getStateManipulators = require('../core/private/_getStateManipulators');
+import addNodes from '../core/public/addNodes';
+import getStateManipulators from '../core/private/_getStateManipulators';
 
 describe('core.public.addNodes', () => {
   test('exports', () => {

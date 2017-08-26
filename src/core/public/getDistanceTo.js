@@ -1,4 +1,4 @@
-const traverseBreadthFirstGenerator = require('./traverseBreadthFirstGenerator');
+import traverseBreadthFirstGenerator from './traverseBreadthFirstGenerator';
 
 const getDistanceTo = ({ sourceNodeID, targetNodeID }) => {
   const traverse = traverseBreadthFirstGenerator({
@@ -16,4 +16,4 @@ const getDistanceTo = ({ sourceNodeID, targetNodeID }) => {
   }
 };
 
-module.exports = getDistanceTo;
+export default getDistanceTo;

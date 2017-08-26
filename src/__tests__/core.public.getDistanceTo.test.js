@@ -1,6 +1,7 @@
-const addEdges = require('../core/public/addEdges');
-const addNodes = require('../core/public/addNodes');
-const getStateManipulators = require('../core/private/_getStateManipulators');
+import addEdges from '../core/public/addEdges';
+import addNodes from '../core/public/addNodes';
+import getStateManipulators from '../core/private/_getStateManipulators';
+import getDistanceTo from '../core/public/getDistanceTo';
 
 const createTestGraph = () => {
   const stateManipulators = getStateManipulators();
@@ -32,8 +33,6 @@ const createTestGraph = () => {
   );
   return stateManipulators.getState();
 };
-
-const getDistanceTo = require('../core/public/getDistanceTo');
 
 describe('core.public.getDistanceTo', () => {
   beforeAll(() => {

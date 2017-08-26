@@ -1,9 +1,9 @@
-const getStateManipulators = require('./core/private/_getStateManipulators');
-const { publicMethods } = require('./core/public');
+import getStateManipulators from './core/private/_getStateManipulators';
+import { publicMethods } from './core/public/index';
 
-const addEdges = publicMethods.addEdges;
-const addNodes = publicMethods.addNodes;
-const isAcyclic = publicMethods.isAcyclic;
+import addEdges from './core/public/addEdges';
+import addNodes from './core/public/addNodes';
+import isAcyclic from './core/public/isAcyclic';
 
 /**
  * 
@@ -251,4 +251,4 @@ class TheDAG {
   }
 }
 
-module.exports = TheDAG;
+export default TheDAG;

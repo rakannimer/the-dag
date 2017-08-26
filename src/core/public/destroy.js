@@ -1,4 +1,4 @@
-const getStateManipulators = require('../private/_getStateManipulators');
+import getStateManipulators from '../private/_getStateManipulators';
 const destroy = stateManipulators => {
   const { setState } = getStateManipulators(stateManipulators);
   setState(state => {
@@ -8,4 +8,4 @@ const destroy = stateManipulators => {
   });
 };
 
-module.exports = destroy;
+export default destroy;

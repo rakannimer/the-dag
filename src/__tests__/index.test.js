@@ -1,7 +1,7 @@
-const All = require('../');
+import TheDAG from '../';
 
 describe('the-dag packaged correctly ', () => {
-  test('exports TheDAG and TheDAGFactory', () => {
-    expect(All).toMatchSnapshot();
+  test('exports TheDAG', () => {
+    expect(TheDAG).toMatchSnapshot();
   });
 });

@@ -1,4 +1,6 @@
-const TheDAG = require('../');
+// const a = require('../../umd/bundle');
+import TheDAG from '../'; // ../umd/bundle';
+import getStateManipulators from '../core/private/_getStateManipulators';
 
 const createTestGraph = (aDAG, type) => {
   switch (type) {
@@ -40,13 +42,11 @@ describe('TheDAG', () => {
     expect(TheDAG).toMatchSnapshot();
   });
   test('is instantiatable', () => {
-    const getStateManipulators = require('../core/private/_getStateManipulators');
     const aDAG = new TheDAG(getStateManipulators());
     expect(aDAG).toMatchSnapshot();
   });
 
   test('public methods', () => {
-    const getStateManipulators = require('../core/private/_getStateManipulators');
     const aDAG = new TheDAG(getStateManipulators());
 
     /* Create simple graph */

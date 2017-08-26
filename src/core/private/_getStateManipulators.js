@@ -1,7 +1,7 @@
-const defaultStateManipulators = require('../private/_state');
+import defaultStateManipulators from '../private/_state';
 
 const getStateManipulators = stateManipulators => {
   return stateManipulators ? stateManipulators : defaultStateManipulators;
 };
 
-module.exports = getStateManipulators;
+export default getStateManipulators;

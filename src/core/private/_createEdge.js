@@ -1,6 +1,6 @@
 // const { getState } = require('./_state');
-const generateEdgeIDFromSourceAndTargetIDs = require('./_generateEdgeIDFromSourceAndTargetIDs');
-const getStateManipulators = require('./_getStateManipulators');
+import generateEdgeIDFromSourceAndTargetIDs from './_generateEdgeIDFromSourceAndTargetIDs';
+import getStateManipulators from './_getStateManipulators';
 
 const createEdge = (edge, stateManipulators) => {
   const { getState } = getStateManipulators(stateManipulators);
@@ -25,4 +25,4 @@ const createEdge = (edge, stateManipulators) => {
   return { edgeID, sourceID, targetID, edgeData: data };
 };
 
-module.exports = createEdge;
+export default createEdge;

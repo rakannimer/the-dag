@@ -1,4 +1,4 @@
-const getStateManipulators = require('../private/_getStateManipulators');
+import getStateManipulators from '../private/_getStateManipulators';
 
 const getNode = ({ nodeID }, stateManipulators) => {
   const { getState } = getStateManipulators(stateManipulators);
@@ -6,4 +6,4 @@ const getNode = ({ nodeID }, stateManipulators) => {
   return state.nodes[nodeID];
 };
 
-module.exports = getNode;
+export default getNode;

@@ -1,5 +1,6 @@
-const addEdges = require('../core/public/addEdges');
-const addNodes = require('../core/public/addNodes');
+import addEdges from '../core/public/addEdges';
+import addNodes from '../core/public/addNodes';
+import traverseDepthFirstGenerator from '../core/public/traverseDepthFirstGenerator';
 const { getState } = require('../core/private/_state');
 
 const createTestGraph = () => {
@@ -26,8 +27,6 @@ const createTestGraph = () => {
   ]);
   return getState();
 };
-
-const traverseDepthFirstGenerator = require('../core/public/traverseDepthFirstGenerator');
 
 describe('core.public.traverseDepthFirstGenerator', () => {
   beforeAll(() => {

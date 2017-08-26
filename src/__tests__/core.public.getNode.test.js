@@ -1,7 +1,8 @@
-const addEdges = require('../core/public/addEdges');
-const addNodes = require('../core/public/addNodes');
-const getNode = require('../core/public/getNode');
-const _createNode = require('../core/private/_createNode');
+import addEdges from '../core/public/addEdges';
+import addNodes from '../core/public/addNodes';
+import getNode from '../core/public/getNode';
+
+import createNode from '../core/private/_createNode';
 
 describe('core.public.getNode', () => {
   test('exports', () => {
@@ -13,7 +14,7 @@ describe('core.public.getNode', () => {
     expect(getNode({ nodeID: 1 })).toMatchSnapshot();
   });
   test('Creates id for node if id not passed in private createNode', () => {
-    const node = _createNode({ data: {} });
+    const node = createNode({ data: {} });
     expect(node).toMatchSnapshot();
   });
 });

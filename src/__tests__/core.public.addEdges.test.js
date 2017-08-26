@@ -1,6 +1,6 @@
-const addEdges = require('../core/public/addEdges');
-const addNodes = require('../core/public/addNodes');
-const getStateManipulators = require('../core/private/_getStateManipulators');
+import addEdges from '../core/public/addEdges';
+import addNodes from '../core/public/addNodes';
+import getStateManipulators from '../core/private/_getStateManipulators';
 const { getState } = require('../core/private/_state');
 describe('core.public.addEdges', () => {
   test('exports', () => {

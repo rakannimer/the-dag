@@ -6,4 +6,4 @@ const addPossibleSources = ({ targetNode, sourceID }) => {
   return updatedNode;
 };
 
-module.exports = addPossibleSources;
+export default addPossibleSources;
