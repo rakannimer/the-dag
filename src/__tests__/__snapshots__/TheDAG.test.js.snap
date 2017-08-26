@@ -516,3 +516,69 @@ Array [
   ],
 ]
 `;
+
+exports[`import graph from any different format 1`] = `
+Object {
+  "edges": Object {
+    "1_2": Object {
+      "edgeData": Object {},
+      "edgeID": "1_2",
+      "sourceID": 1,
+      "targetID": 2,
+    },
+    "2_3": Object {
+      "edgeData": Object {},
+      "edgeID": "2_3",
+      "sourceID": 2,
+      "targetID": 3,
+    },
+    "2_4": Object {
+      "edgeData": Object {},
+      "edgeID": "2_4",
+      "sourceID": 2,
+      "targetID": 4,
+    },
+  },
+  "nodes": Object {
+    "1": Object {
+      "nodeData": undefined,
+      "nodeID": 1,
+      "possibleTargets": Array [
+        2,
+      ],
+    },
+    "2": Object {
+      "nodeData": undefined,
+      "nodeID": 2,
+      "possibleSources": Array [
+        1,
+      ],
+      "possibleTargets": Array [
+        3,
+        4,
+      ],
+    },
+    "3": Object {
+      "nodeData": undefined,
+      "nodeID": 3,
+      "possibleSources": Array [
+        2,
+      ],
+      "possibleTargets": Array [],
+    },
+    "4": Object {
+      "nodeData": undefined,
+      "nodeID": 4,
+      "possibleSources": Array [
+        2,
+      ],
+      "possibleTargets": Array [],
+    },
+    "5": Object {
+      "nodeData": undefined,
+      "nodeID": 5,
+      "possibleTargets": Array [],
+    },
+  },
+}
+`;

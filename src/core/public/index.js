@@ -13,6 +13,7 @@ const nodeExists = require('./nodeExists');
 const traverseBreadthFirst = require('./traverseBreadthFirst');
 const traverseBreadthFirstGenerator = require('./traverseBreadthFirstGenerator');
 const traverseDepthFirstGenerator = require('./traverseDepthFirstGenerator');
+const importGraph = require('./importGraph');
 
 module.exports = {
   publicMethods: {
@@ -30,6 +31,7 @@ module.exports = {
     nodeExists,
     traverseBreadthFirst,
     traverseBreadthFirstGenerator,
-    traverseDepthFirstGenerator
+    traverseDepthFirstGenerator,
+    importGraph
   }
 };

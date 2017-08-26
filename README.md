@@ -111,6 +111,31 @@ const distanceFromNodeOneToNodeTwo = aDAG.getDistanceTo({
   <summary>API Usage Demo</summary>
 
 ```javascript
+
+
+/* import graph from any different format */
+const inputGraphWithDifferentFormat = {
+  nodes: [1, 2, 3, 4, 5],
+  edges: [
+    { source: 1, target: 2 },
+    { source: 2, target: 3 },
+    { source: 2, target: 4 }
+  ]
+};
+const graphReducers = {
+  nodeIDGenerator: node => node,
+  edgeSourceIDGenerator: edge => edge.source,
+  edgeTargetIDGenerator: edge => edge.target
+};
+aDAG.importGraph(
+  Object.assign({}, inputGraphWithDifferentFormat, graphReducers)
+);
+expect(aDAG.toJS()).toMatchSnapshot(
+  'import graph from any different format'
+);
+
+aDAG.destroy();
+
 /* Get edge by source and target ids */
 const edgeFromOneToThree = aDAG.getEdge({
   source: 1,

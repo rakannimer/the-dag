@@ -49,6 +49,27 @@ describe('TheDAG', () => {
     const getStateManipulators = require('../core/private/_getStateManipulators');
     const aDAG = new TheDAG(getStateManipulators());
 
+    /* import graph from any different format */
+    const inputGraphWithDifferentFormat = {
+      nodes: [1, 2, 3, 4, 5],
+      edges: [
+        { source: 1, target: 2 },
+        { source: 2, target: 3 },
+        { source: 2, target: 4 }
+      ]
+    };
+    const graphReducers = {
+      nodeIDGenerator: node => node,
+      edgeSourceIDGenerator: edge => edge.source,
+      edgeTargetIDGenerator: edge => edge.target
+    };
+    aDAG.importGraph(
+      Object.assign({}, inputGraphWithDifferentFormat, graphReducers)
+    );
+    expect(aDAG.toJS()).toMatchSnapshot(
+      'import graph from any different format'
+    );
+    aDAG.destroy();
     /* Create simple graph */
     createTestGraph(aDAG, 'simple');
     expect(aDAG.toJS()).toMatchSnapshot('Create simple graph');

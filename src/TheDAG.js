@@ -23,6 +23,35 @@ class TheDAG {
   }
 
   /**
+    * @param {any[]} nodes
+    * @param {any} nodes[].node
+    * @param {any[]} edges
+    * @param {any} edges[].edge
+    * @param {function} nodeIDGenerator - input : nodes[].node output: nodeID
+    * @param {function} edgeSourceIDGenerator - input : edges[].edge output: edgeSourceID
+    * @param {function} edgeTargetIDGenerator - input : edges[].edge output: edgeTargetID
+    * @returns {Void}
+    * @memberof TheDAG
+  */
+  importGraph({
+    nodes,
+    edges,
+    nodeIDGenerator,
+    edgeSourceIDGenerator,
+    edgeTargetIDGenerator
+  }) {
+    return publicMethods.importGraph(
+      {
+        nodes,
+        edges,
+        nodeIDGenerator,
+        edgeSourceIDGenerator,
+        edgeTargetIDGenerator
+      },
+      this.stateManipulators
+    );
+  }
+  /**
     * @param {nodes} nodes
     * @param {Node} nodes.node { nodeID, nodeData }
     * @param {string} nodes.node.nodeID
