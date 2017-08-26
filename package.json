@@ -2,7 +2,8 @@
   "name": "the-dag",
   "version": "0.2.0",
   "description": "Yet Another Directed Acyclic Graph Implementation ",
-  "main": "index.js",
+  "main": "src/index.js",
+  "module": "src/index.js",
   "repository": "https://www.github.com/rakannimer/the-dag",
   "author": "Rakan Nimer",
   "license": "MIT",
@@ -13,7 +14,7 @@
     "test-ci": "npm run lint && jest --runInBand --coverage",
     "prettier": "prettier --write --single-quote src/core/**/*.js src/*.js",
     "lint": "eslint src/core/**/*.js src/*.js",
-    "prepublish": "npm run test && npm run docs"
+    "build": "webpack --config webpack.config.js -p "
   },
   "jest": {
     "setupFiles": ["./jestSetup.js"],
@@ -28,14 +29,21 @@
     }
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "browserify": "^14.4.0",
     "eslint": "^4.5.0",
     "eslint-plugin-prettier": "^2.2.0",
     "eslint-plugin-react": "^7.3.0",
     "husky": "^0.14.3",
     "jest": "^20.0.4",
     "jsdoc": "^3.5.4",
-    "prettier": "^1.5.3"
+    "prettier": "^1.5.3",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "webpack": "^3.5.5"
   },
   "dependencies": {
     "fifo": "^2.3.0",
