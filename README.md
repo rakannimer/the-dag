@@ -197,8 +197,7 @@ expect(orderedNodes).toEqual(syncTraversalResult);
 </details>
 
 
-Read [tests](/src/__tests__/) and [snapshots](/src/__tests__/__snapshots/TheDAG.test.js.snap) for more usage information.
-
+Read [tests](/src/__tests__/) and [snapshots](/src/__tests__/__snapshots__/TheDAG.test.js.snap) for more usage information.
 ## Development
 
 ```sh
