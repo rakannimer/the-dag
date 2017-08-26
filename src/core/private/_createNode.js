@@ -1,4 +1,4 @@
-const uuidV4 = require('uuid/v4');
+import uuidV4 from 'uuid/v4';
 
 const createNode = node => {
   const { nodeID, data } = node;
@@ -6,4 +6,4 @@ const createNode = node => {
   const nodeData = data;
   return { nodeID: castNodeID, nodeData, possibleTargets: [] };
 };
-module.exports = createNode;
+export default createNode;

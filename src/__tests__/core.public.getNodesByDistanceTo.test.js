@@ -1,5 +1,6 @@
-const addEdges = require('../core/public/addEdges');
-const addNodes = require('../core/public/addNodes');
+import addEdges from '../core/public/addEdges';
+import addNodes from '../core/public/addNodes';
+import getNodesByDistanceTo from '../core/public/getNodesByDistanceTo';
 const { getState } = require('../core/private/_state');
 
 const createTestGraph = () => {
@@ -25,8 +26,6 @@ const createTestGraph = () => {
   ]);
   return getState();
 };
-
-const getNodesByDistanceTo = require('../core/public/getNodesByDistanceTo');
 
 describe('core.public.getNodesByDistanceTo', () => {
   beforeAll(() => {

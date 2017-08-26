@@ -1,20 +1,37 @@
-const addEdges = require('./addEdges');
-const addNodes = require('./addNodes');
-const destroy = require('./destroy');
-const getDistanceTo = require('./getDistanceTo');
-const getEdge = require('./getEdge');
-const getEdgeID = require('./getEdgeID');
-const getEdges = require('./getEdges');
-const getNode = require('./getNode');
-const getNodes = require('./getNodes');
-const getNodesByDistanceTo = require('./getNodesByDistanceTo');
-const isAcyclic = require('./isAcyclic');
-const nodeExists = require('./nodeExists');
-const traverseBreadthFirst = require('./traverseBreadthFirst');
-const traverseBreadthFirstGenerator = require('./traverseBreadthFirstGenerator');
-const traverseDepthFirstGenerator = require('./traverseDepthFirstGenerator');
+import addEdges from './addEdges';
+import addNodes from './addNodes';
+import destroy from './destroy';
+import getDistanceTo from './getDistanceTo';
+import getEdge from './getEdge';
+import getEdgeID from './getEdgeID';
+import getEdges from './getEdges';
+import getNode from './getNode';
+import getNodes from './getNodes';
+import getNodesByDistanceTo from './getNodesByDistanceTo';
+import isAcyclic from './isAcyclic';
+import nodeExists from './nodeExists';
+import traverseBreadthFirst from './traverseBreadthFirst';
+import traverseBreadthFirstGenerator from './traverseBreadthFirstGenerator';
+import traverseDepthFirstGenerator from './traverseDepthFirstGenerator';
 
-module.exports = {
+export const publicMethods = {
+  addEdges,
+  addNodes,
+  destroy,
+  getDistanceTo,
+  getEdge,
+  getEdgeID,
+  getEdges,
+  getNode,
+  getNodes,
+  getNodesByDistanceTo,
+  isAcyclic,
+  nodeExists,
+  traverseBreadthFirst,
+  traverseBreadthFirstGenerator,
+  traverseDepthFirstGenerator
+};
+export default {
   publicMethods: {
     addEdges,
     addNodes,

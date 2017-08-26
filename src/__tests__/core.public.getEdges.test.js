@@ -1,6 +1,6 @@
-const addEdges = require('../core/public/addEdges');
-const addNodes = require('../core/public/addNodes');
-const getEdges = require('../core/public/getEdges');
+import addEdges from '../core/public/addEdges';
+import addNodes from '../core/public/addNodes';
+import getEdges from '../core/public/getEdges';
 
 // const { getState } = require('../core/private/_state');
 

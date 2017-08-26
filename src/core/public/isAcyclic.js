@@ -1,6 +1,6 @@
-const toposort = require('toposort');
+import toposort from 'toposort';
 
-const getStateManipulators = require('../private/_getStateManipulators');
+import getStateManipulators from '../private/_getStateManipulators';
 
 const isAcyclic = stateManipulators => {
   const { getState } = getStateManipulators(stateManipulators);
@@ -18,4 +18,4 @@ const isAcyclic = stateManipulators => {
     return { isAcyclic: false, message, cyclicDependencyID };
   }
 };
-module.exports = isAcyclic;
+export default isAcyclic;

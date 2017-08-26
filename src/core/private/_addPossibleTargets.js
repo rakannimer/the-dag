@@ -6,4 +6,4 @@ const addPossibleTargets = ({ sourceNode, targetID }) => {
   return updatedNode;
 };
 
-module.exports = addPossibleTargets;
+export default addPossibleTargets;

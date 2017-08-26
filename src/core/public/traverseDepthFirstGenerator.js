@@ -1,4 +1,4 @@
-const getStateManipulators = require('../private/_getStateManipulators');
+import getStateManipulators from '../private/_getStateManipulators';
 
 const traverseDepthFirstGenerator = function*(
   { startingNodeID, visitNode = () => null },
@@ -22,4 +22,4 @@ const traverseDepthFirstGenerator = function*(
   return null;
 };
 
-module.exports = traverseDepthFirstGenerator;
+export default traverseDepthFirstGenerator;

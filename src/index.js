@@ -1,3 +1,2 @@
-const TheDAG = require('./TheDAG');
-
-module.exports = TheDAG;
+import TheDAG from './TheDAG';
+export default TheDAG;

@@ -1,12 +1,14 @@
-const { privateMethods } = require('../private/');
-const getStateManipulators = require('../private/_getStateManipulators');
+import createEdge from '../private/_createEdge';
+import addPossibleSources from '../private/_addPossibleSources';
+import addPossibleTargets from '../private/_addPossibleTargets';
+import getStateManipulators from '../private/_getStateManipulators';
 
 const addEdges = (edges = [], stateManipulators) => {
   const { getState, setState } = getStateManipulators(stateManipulators);
   const state = getState();
   edges.forEach(edge => {
     const { source, target } = edge;
-    const { edgeID, edgeData, sourceID, targetID } = privateMethods.createEdge(
+    const { edgeID, edgeData, sourceID, targetID } = createEdge(
       {
         source,
         target
@@ -22,7 +24,7 @@ const addEdges = (edges = [], stateManipulators) => {
     });
     const sourceNode = state.nodes[sourceID];
     setState(stateToUpdate => {
-      stateToUpdate.nodes[sourceID] = privateMethods.addPossibleTargets({
+      stateToUpdate.nodes[sourceID] = addPossibleTargets({
         sourceNode,
         targetID
       });
@@ -31,7 +33,7 @@ const addEdges = (edges = [], stateManipulators) => {
 
     const targetNode = state.nodes[targetID];
     setState(stateToUpdate => {
-      stateToUpdate.nodes[targetID] = privateMethods.addPossibleSources({
+      stateToUpdate.nodes[targetID] = addPossibleSources({
         targetNode,
         sourceID
       });
@@ -40,4 +42,4 @@ const addEdges = (edges = [], stateManipulators) => {
   });
 };
 
-module.exports = addEdges;
+export default addEdges;

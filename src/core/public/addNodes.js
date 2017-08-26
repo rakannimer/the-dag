@@ -1,17 +1,17 @@
-const nodeExists = require('./nodeExists');
-const { privateMethods } = require('../private/');
-const getStateManipulators = require('../private/_getStateManipulators');
+import nodeExists from './nodeExists';
+import createNode from '../private/_createNode';
+import getStateManipulators from '../private/_getStateManipulators';
 
 const addNodes = (nodes = [], stateManipulators) => {
   const { setState } = getStateManipulators(stateManipulators);
   nodes.forEach(node => {
     const { nodeID } = node;
     if (nodeExists(nodeID)) return;
-    const newNode = privateMethods.createNode(node);
+    const newNode = createNode(node);
     setState(state => {
       state.nodes[nodeID] = newNode;
       return state;
     });
   });
 };
-module.exports = addNodes;
+export default addNodes;

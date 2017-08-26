@@ -27,8 +27,8 @@ const {
   setState
 } = createStateManipulators();
 
-module.exports = {
-  // initState,
+export { getState, setState, createStateManipulators };
+export default {
   getState,
   setState,
   createStateManipulators

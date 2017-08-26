@@ -1,6 +1,6 @@
-const getStateManipulators = require('../private/_getStateManipulators');
+import getStateManipulators from '../private/_getStateManipulators';
 
-const getEdgeID = require('./getEdgeID');
+import getEdgeID from './getEdgeID';
 
 const getEdge = ({ source, target }, stateManipulators) => {
   const { getState } = getStateManipulators(stateManipulators);
@@ -10,4 +10,4 @@ const getEdge = ({ source, target }, stateManipulators) => {
   return state.edges[edgeID];
 };
 
-module.exports = getEdge;
+export default getEdge;

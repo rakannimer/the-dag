@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Private methods export correctly 1`] = `
+Object {
+  "privateMethods": Object {
+    "addPossibleSources": [Function],
+    "addPossibleTargets": [Function],
+    "createEdge": [Function],
+    "createNode": [Function],
+    "generateEdgeIDFromSourceAndTargetIDs": [Function],
+  },
+}
+`;

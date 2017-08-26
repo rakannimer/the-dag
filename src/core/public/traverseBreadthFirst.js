@@ -1,5 +1,5 @@
-const FIFO = require('fifo');
-const getStateManipulators = require('../private/_getStateManipulators');
+import FIFO from 'fifo';
+import getStateManipulators from '../private/_getStateManipulators';
 
 const traverseBreadthFirst = (
   { startingNodeID, visitNode = () => null },
@@ -28,4 +28,4 @@ const traverseBreadthFirst = (
   return nodesBFT;
 };
 
-module.exports = traverseBreadthFirst;
+export default traverseBreadthFirst;
