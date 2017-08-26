@@ -541,14 +541,14 @@ Object {
   },
   "nodes": Object {
     "1": Object {
-      "nodeData": undefined,
+      "nodeData": 1,
       "nodeID": 1,
       "possibleTargets": Array [
         2,
       ],
     },
     "2": Object {
-      "nodeData": undefined,
+      "nodeData": 2,
       "nodeID": 2,
       "possibleSources": Array [
         1,
@@ -559,7 +559,7 @@ Object {
       ],
     },
     "3": Object {
-      "nodeData": undefined,
+      "nodeData": 3,
       "nodeID": 3,
       "possibleSources": Array [
         2,
@@ -567,7 +567,7 @@ Object {
       "possibleTargets": Array [],
     },
     "4": Object {
-      "nodeData": undefined,
+      "nodeData": 4,
       "nodeID": 4,
       "possibleSources": Array [
         2,
@@ -575,7 +575,7 @@ Object {
       "possibleTargets": Array [],
     },
     "5": Object {
-      "nodeData": undefined,
+      "nodeData": 5,
       "nodeID": 5,
       "possibleTargets": Array [],
     },
