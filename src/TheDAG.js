@@ -14,7 +14,9 @@ const isAcyclic = publicMethods.isAcyclic;
  */
 class TheDAG {
   constructor(stateManipulators) {
-    this.stateManipulators = getStateManipulators(stateManipulators);
+    this.stateManipulators = getStateManipulators(
+      stateManipulators
+    ).createStateManipulators();
   }
 
   nodeExists(node) {

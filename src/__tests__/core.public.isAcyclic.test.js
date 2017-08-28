@@ -56,6 +56,12 @@ const isAcyclic = require('../core/public/isAcyclic');
 
 describe('core.public.isAcyclic', () => {
   beforeAll(() => {
+    setState(graph => {
+      graph.nodes = {};
+      graph.edges = {};
+      return graph;
+    });
+
     createTestGraph();
   });
   test('exports', () => {

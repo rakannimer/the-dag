@@ -2,6 +2,13 @@ const addNodes = require('../core/public/addNodes');
 const getStateManipulators = require('../core/private/_getStateManipulators');
 
 describe('core.public.addNodes', () => {
+  beforeAll(() => {
+    getStateManipulators().setState(graph => {
+      graph.nodes = {};
+      graph.edges = {};
+      return graph;
+    });
+  });
   test('exports', () => {
     expect(addNodes).toMatchSnapshot();
   });

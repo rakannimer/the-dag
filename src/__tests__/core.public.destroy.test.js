@@ -6,6 +6,13 @@ const getStateManipulators = require('../core/private/_getStateManipulators');
 
 // const { getState } = require('../core/private/_state');
 describe('core.public.destroy', () => {
+  beforeAll(() => {
+    getStateManipulators().setState(graph => {
+      graph.nodes = {};
+      graph.edges = {};
+      return graph;
+    });
+  });
   test('exports', () => {
     expect(destroy).toMatchSnapshot();
   });

@@ -8,6 +8,11 @@ describe('core.public.addEdges', () => {
   });
   test('addEdges throws if source and/or target are not registered nodes in state', () => {
     const stateHandlers = getStateManipulators();
+    stateHandlers.setState(graph => {
+      graph.nodes = {};
+      graph.edges = {};
+      return graph;
+    });
     addNodes([{ nodeID: 1 }], stateHandlers);
     try {
       addEdges([{ source: 1, target: 2 }], stateHandlers);

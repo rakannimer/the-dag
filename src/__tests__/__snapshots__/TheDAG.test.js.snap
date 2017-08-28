@@ -1,6 +1,100 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Check for acyclicity and get topologically sorted array 1`] = `
+exports[`Get all DAG nodes 1`] = `
+Object {
+  "1": Object {
+    "nodeData": Object {
+      "some": "data",
+    },
+    "nodeID": 1,
+    "possibleTargets": Array [
+      3,
+      4,
+    ],
+  },
+  "2": Object {
+    "nodeData": Object {
+      "some": "otherData",
+    },
+    "nodeID": 2,
+    "possibleSources": Array [
+      4,
+    ],
+    "possibleTargets": Array [],
+  },
+  "3": Object {
+    "nodeData": Object {},
+    "nodeID": 3,
+    "possibleSources": Array [
+      1,
+    ],
+    "possibleTargets": Array [
+      5,
+      6,
+    ],
+  },
+  "4": Object {
+    "nodeData": Object {},
+    "nodeID": 4,
+    "possibleSources": Array [
+      1,
+    ],
+    "possibleTargets": Array [
+      2,
+      7,
+    ],
+  },
+  "5": Object {
+    "nodeData": Object {},
+    "nodeID": 5,
+    "possibleSources": Array [
+      3,
+    ],
+    "possibleTargets": Array [
+      8,
+    ],
+  },
+  "6": Object {
+    "nodeData": Object {},
+    "nodeID": 6,
+    "possibleSources": Array [
+      3,
+    ],
+    "possibleTargets": Array [],
+  },
+  "7": Object {
+    "nodeData": Object {},
+    "nodeID": 7,
+    "possibleSources": Array [
+      4,
+    ],
+    "possibleTargets": Array [],
+  },
+  "8": Object {
+    "nodeData": Object {},
+    "nodeID": 8,
+    "possibleSources": Array [
+      5,
+    ],
+    "possibleTargets": Array [],
+  },
+}
+`;
+
+exports[`Get node by id 1`] = `
+Object {
+  "nodeData": Object {
+    "some": "data",
+  },
+  "nodeID": 1,
+  "possibleTargets": Array [
+    3,
+    4,
+  ],
+}
+`;
+
+exports[`TheDAG Check for acyclicity and get topologically sorted array 1`] = `
 Object {
   "isAcyclic": true,
   "topologicallySortedNodeIDs": Array [
@@ -16,7 +110,314 @@ Object {
 }
 `;
 
-exports[`Create lessSimple graph 1`] = `
+exports[`TheDAG Create simple graph  1`] = `
+Object {
+  "edges": Object {
+    "1_2": Object {
+      "edgeData": Object {},
+      "edgeID": "1_2",
+      "sourceID": 1,
+      "targetID": 2,
+    },
+  },
+  "nodes": Object {
+    "1": Object {
+      "nodeData": undefined,
+      "nodeID": 1,
+      "possibleTargets": Array [
+        2,
+      ],
+    },
+    "2": Object {
+      "nodeData": undefined,
+      "nodeID": 2,
+      "possibleSources": Array [
+        1,
+      ],
+      "possibleTargets": Array [],
+    },
+  },
+}
+`;
+
+exports[`TheDAG Get all DAG edges 1`] = `
+Object {
+  "1_3": Object {
+    "edgeData": Object {},
+    "edgeID": "1_3",
+    "sourceID": 1,
+    "targetID": 3,
+  },
+  "1_4": Object {
+    "edgeData": Object {},
+    "edgeID": "1_4",
+    "sourceID": 1,
+    "targetID": 4,
+  },
+  "3_5": Object {
+    "edgeData": Object {},
+    "edgeID": "3_5",
+    "sourceID": 3,
+    "targetID": 5,
+  },
+  "3_6": Object {
+    "edgeData": Object {},
+    "edgeID": "3_6",
+    "sourceID": 3,
+    "targetID": 6,
+  },
+  "4_2": Object {
+    "edgeData": Object {},
+    "edgeID": "4_2",
+    "sourceID": 4,
+    "targetID": 2,
+  },
+  "4_7": Object {
+    "edgeData": Object {},
+    "edgeID": "4_7",
+    "sourceID": 4,
+    "targetID": 7,
+  },
+  "5_8": Object {
+    "edgeData": Object {},
+    "edgeID": "5_8",
+    "sourceID": 5,
+    "targetID": 8,
+  },
+}
+`;
+
+exports[`TheDAG Get edge by loose source and target  1`] = `
+Object {
+  "edgeFromOneToThree": Object {
+    "edgeData": Object {},
+    "edgeID": "1_3",
+    "sourceID": 1,
+    "targetID": 3,
+  },
+}
+`;
+
+exports[`TheDAG Get nodes by relative distance 1`] = `
+Array [
+  Object {
+    "hops": 2,
+    "nodeID": 5,
+  },
+  Object {
+    "hops": 2,
+    "nodeID": 6,
+  },
+  Object {
+    "hops": 2,
+    "nodeID": 2,
+  },
+  Object {
+    "hops": 2,
+    "nodeID": 7,
+  },
+]
+`;
+
+exports[`TheDAG Traverse the graph breadth first 1`] = `
+Array [
+  Object {
+    "hops": 0,
+    "nodeID": 1,
+  },
+  Object {
+    "hops": 1,
+    "nodeID": 3,
+  },
+  Object {
+    "hops": 1,
+    "nodeID": 4,
+  },
+  Object {
+    "hops": 2,
+    "nodeID": 5,
+  },
+  Object {
+    "hops": 2,
+    "nodeID": 6,
+  },
+  Object {
+    "hops": 2,
+    "nodeID": 2,
+  },
+  Object {
+    "hops": 2,
+    "nodeID": 7,
+  },
+  Object {
+    "hops": 3,
+    "nodeID": 8,
+  },
+]
+`;
+
+exports[`TheDAG Traverse the graph breadth first 2`] = `
+Array [
+  Array [
+    Object {
+      "hops": 0,
+      "nodeID": 1,
+    },
+  ],
+  Array [
+    Object {
+      "hops": 1,
+      "nodeID": 3,
+    },
+  ],
+  Array [
+    Object {
+      "hops": 1,
+      "nodeID": 4,
+    },
+  ],
+  Array [
+    Object {
+      "hops": 2,
+      "nodeID": 5,
+    },
+  ],
+  Array [
+    Object {
+      "hops": 2,
+      "nodeID": 6,
+    },
+  ],
+  Array [
+    Object {
+      "hops": 2,
+      "nodeID": 2,
+    },
+  ],
+  Array [
+    Object {
+      "hops": 2,
+      "nodeID": 7,
+    },
+  ],
+  Array [
+    Object {
+      "hops": 3,
+      "nodeID": 8,
+    },
+  ],
+]
+`;
+
+exports[`TheDAG Traverse the graph depth first using generators 1`] = `
+Array [
+  Object {
+    "nodeData": Object {},
+    "nodeID": 3,
+    "possibleSources": Array [
+      1,
+    ],
+    "possibleTargets": Array [
+      5,
+      6,
+    ],
+  },
+  Object {
+    "nodeData": Object {},
+    "nodeID": 5,
+    "possibleSources": Array [
+      3,
+    ],
+    "possibleTargets": Array [
+      8,
+    ],
+  },
+  Object {
+    "nodeData": Object {},
+    "nodeID": 8,
+    "possibleSources": Array [
+      5,
+    ],
+    "possibleTargets": Array [],
+  },
+  Object {
+    "nodeData": Object {},
+    "nodeID": 6,
+    "possibleSources": Array [
+      3,
+    ],
+    "possibleTargets": Array [],
+  },
+  Object {
+    "nodeData": Object {},
+    "nodeID": 4,
+    "possibleSources": Array [
+      1,
+    ],
+    "possibleTargets": Array [
+      2,
+      7,
+    ],
+  },
+  Object {
+    "nodeData": Object {
+      "some": "otherData",
+    },
+    "nodeID": 2,
+    "possibleSources": Array [
+      4,
+    ],
+    "possibleTargets": Array [],
+  },
+  Object {
+    "nodeData": Object {},
+    "nodeID": 7,
+    "possibleSources": Array [
+      4,
+    ],
+    "possibleTargets": Array [],
+  },
+]
+`;
+
+exports[`TheDAG Traverse the graph however u want 1`] = `
+Object {
+  "done": false,
+  "value": Object {
+    "visitedNode": Object {
+      "nodeData": Object {},
+      "nodeID": 3,
+      "possibleSources": Array [
+        1,
+      ],
+      "possibleTargets": Array [
+        5,
+        6,
+      ],
+    },
+  },
+}
+`;
+
+exports[`TheDAG Traverse the graph however u want 2`] = `
+Object {
+  "done": false,
+  "value": Object {
+    "visitedNode": Object {
+      "nodeData": Object {},
+      "nodeID": 5,
+      "possibleSources": Array [
+        3,
+      ],
+      "possibleTargets": Array [
+        8,
+      ],
+    },
+  },
+}
+`;
+
+exports[`TheDAG can create less simple graph 1`] = `
 Object {
   "edges": Object {
     "1_3": Object {
@@ -143,415 +544,19 @@ Object {
 }
 `;
 
-exports[`Create simple graph 1`] = `
-Object {
-  "edges": Object {
-    "1_2": Object {
-      "edgeData": Object {},
-      "edgeID": "1_2",
-      "sourceID": 1,
-      "targetID": 2,
-    },
-  },
-  "nodes": Object {
-    "1": Object {
-      "nodeData": undefined,
-      "nodeID": 1,
-      "possibleTargets": Array [
-        2,
-      ],
-    },
-    "2": Object {
-      "nodeData": undefined,
-      "nodeID": 2,
-      "possibleSources": Array [
-        1,
-      ],
-      "possibleTargets": Array [],
-    },
-  },
-}
-`;
-
-exports[`Get all DAG edges 1`] = `
-Object {
-  "1_3": Object {
-    "edgeData": Object {},
-    "edgeID": "1_3",
-    "sourceID": 1,
-    "targetID": 3,
-  },
-  "1_4": Object {
-    "edgeData": Object {},
-    "edgeID": "1_4",
-    "sourceID": 1,
-    "targetID": 4,
-  },
-  "3_5": Object {
-    "edgeData": Object {},
-    "edgeID": "3_5",
-    "sourceID": 3,
-    "targetID": 5,
-  },
-  "3_6": Object {
-    "edgeData": Object {},
-    "edgeID": "3_6",
-    "sourceID": 3,
-    "targetID": 6,
-  },
-  "4_2": Object {
-    "edgeData": Object {},
-    "edgeID": "4_2",
-    "sourceID": 4,
-    "targetID": 2,
-  },
-  "4_7": Object {
-    "edgeData": Object {},
-    "edgeID": "4_7",
-    "sourceID": 4,
-    "targetID": 7,
-  },
-  "5_8": Object {
-    "edgeData": Object {},
-    "edgeID": "5_8",
-    "sourceID": 5,
-    "targetID": 8,
-  },
-}
-`;
-
-exports[`Get all DAG nodes 1`] = `
-Object {
-  "1": Object {
-    "nodeData": Object {
-      "some": "data",
-    },
-    "nodeID": 1,
-    "possibleTargets": Array [
-      3,
-      4,
-    ],
-  },
-  "2": Object {
-    "nodeData": Object {
-      "some": "otherData",
-    },
-    "nodeID": 2,
-    "possibleSources": Array [
-      4,
-    ],
-    "possibleTargets": Array [],
-  },
-  "3": Object {
-    "nodeData": Object {},
-    "nodeID": 3,
-    "possibleSources": Array [
-      1,
-    ],
-    "possibleTargets": Array [
-      5,
-      6,
-    ],
-  },
-  "4": Object {
-    "nodeData": Object {},
-    "nodeID": 4,
-    "possibleSources": Array [
-      1,
-    ],
-    "possibleTargets": Array [
-      2,
-      7,
-    ],
-  },
-  "5": Object {
-    "nodeData": Object {},
-    "nodeID": 5,
-    "possibleSources": Array [
-      3,
-    ],
-    "possibleTargets": Array [
-      8,
-    ],
-  },
-  "6": Object {
-    "nodeData": Object {},
-    "nodeID": 6,
-    "possibleSources": Array [
-      3,
-    ],
-    "possibleTargets": Array [],
-  },
-  "7": Object {
-    "nodeData": Object {},
-    "nodeID": 7,
-    "possibleSources": Array [
-      4,
-    ],
-    "possibleTargets": Array [],
-  },
-  "8": Object {
-    "nodeData": Object {},
-    "nodeID": 8,
-    "possibleSources": Array [
-      5,
-    ],
-    "possibleTargets": Array [],
-  },
-}
-`;
-
-exports[`Get edge by source and target ids 1`] = `
-Object {
-  "edgeData": Object {},
-  "edgeID": "1_3",
-  "sourceID": 1,
-  "targetID": 3,
-}
-`;
-
-exports[`Get node by id 1`] = `
-Object {
-  "nodeData": Object {
-    "some": "data",
-  },
-  "nodeID": 1,
-  "possibleTargets": Array [
-    3,
-    4,
-  ],
-}
-`;
-
-exports[`Get nodes by relative distance 1`] = `
-Array [
-  Object {
-    "hops": 2,
-    "nodeID": 5,
-  },
-  Object {
-    "hops": 2,
-    "nodeID": 6,
-  },
-  Object {
-    "hops": 2,
-    "nodeID": 2,
-  },
-  Object {
-    "hops": 2,
-    "nodeID": 7,
-  },
-]
-`;
-
 exports[`TheDAG exports 1`] = `[Function]`;
 
 exports[`TheDAG is instantiatable 1`] = `
 TheDAG {
   "stateManipulators": Object {
-    "createStateManipulators": [Function],
     "getState": [Function],
     "setState": [Function],
-  },
-}
-`;
-
-exports[`TheDAG public methods 1`] = `
-Array [
-  Object {
-    "nodeData": Object {},
-    "nodeID": 3,
-    "possibleSources": Array [
-      1,
-    ],
-    "possibleTargets": Array [
-      5,
-      6,
-    ],
-  },
-  Object {
-    "nodeData": Object {},
-    "nodeID": 5,
-    "possibleSources": Array [
-      3,
-    ],
-    "possibleTargets": Array [
-      8,
-    ],
-  },
-  Object {
-    "nodeData": Object {},
-    "nodeID": 8,
-    "possibleSources": Array [
-      5,
-    ],
-    "possibleTargets": Array [],
-  },
-  Object {
-    "nodeData": Object {},
-    "nodeID": 6,
-    "possibleSources": Array [
-      3,
-    ],
-    "possibleTargets": Array [],
-  },
-  Object {
-    "nodeData": Object {},
-    "nodeID": 4,
-    "possibleSources": Array [
-      1,
-    ],
-    "possibleTargets": Array [
-      2,
-      7,
-    ],
-  },
-  Object {
-    "nodeData": Object {
-      "some": "otherData",
-    },
-    "nodeID": 2,
-    "possibleSources": Array [
-      4,
-    ],
-    "possibleTargets": Array [],
-  },
-  Object {
-    "nodeData": Object {},
-    "nodeID": 7,
-    "possibleSources": Array [
-      4,
-    ],
-    "possibleTargets": Array [],
-  },
-]
-`;
-
-exports[`TheDAG public methods 2`] = `
-Object {
-  "done": false,
-  "value": Object {
-    "visitedNode": Object {
-      "nodeData": Object {},
-      "nodeID": 3,
-      "possibleSources": Array [
-        1,
-      ],
-      "possibleTargets": Array [
-        5,
-        6,
-      ],
+    "state": Object {
+      "edges": Object {},
+      "nodes": Object {},
     },
   },
 }
-`;
-
-exports[`TheDAG public methods 3`] = `
-Object {
-  "done": false,
-  "value": Object {
-    "visitedNode": Object {
-      "nodeData": Object {},
-      "nodeID": 5,
-      "possibleSources": Array [
-        3,
-      ],
-      "possibleTargets": Array [
-        8,
-      ],
-    },
-  },
-}
-`;
-
-exports[`Traverse the graph breadth first synchronously 1`] = `
-Array [
-  Object {
-    "hops": 0,
-    "nodeID": 1,
-  },
-  Object {
-    "hops": 1,
-    "nodeID": 3,
-  },
-  Object {
-    "hops": 1,
-    "nodeID": 4,
-  },
-  Object {
-    "hops": 2,
-    "nodeID": 5,
-  },
-  Object {
-    "hops": 2,
-    "nodeID": 6,
-  },
-  Object {
-    "hops": 2,
-    "nodeID": 2,
-  },
-  Object {
-    "hops": 2,
-    "nodeID": 7,
-  },
-  Object {
-    "hops": 3,
-    "nodeID": 8,
-  },
-]
-`;
-
-exports[`Traverse the graph breadth first synchronously visitNode calls 1`] = `
-Array [
-  Array [
-    Object {
-      "hops": 0,
-      "nodeID": 1,
-    },
-  ],
-  Array [
-    Object {
-      "hops": 1,
-      "nodeID": 3,
-    },
-  ],
-  Array [
-    Object {
-      "hops": 1,
-      "nodeID": 4,
-    },
-  ],
-  Array [
-    Object {
-      "hops": 2,
-      "nodeID": 5,
-    },
-  ],
-  Array [
-    Object {
-      "hops": 2,
-      "nodeID": 6,
-    },
-  ],
-  Array [
-    Object {
-      "hops": 2,
-      "nodeID": 2,
-    },
-  ],
-  Array [
-    Object {
-      "hops": 2,
-      "nodeID": 7,
-    },
-  ],
-  Array [
-    Object {
-      "hops": 3,
-      "nodeID": 8,
-    },
-  ],
-]
 `;
 
 exports[`import graph from any different format 1`] = `

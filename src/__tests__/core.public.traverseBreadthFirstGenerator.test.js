@@ -1,6 +1,6 @@
 const addEdges = require('../core/public/addEdges');
 const addNodes = require('../core/public/addNodes');
-const { getState } = require('../core/private/_state');
+const { getState, setState } = require('../core/private/_state');
 
 const createTestGraph = () => {
   addNodes([
@@ -31,6 +31,11 @@ const traverseBreadthFirstGenerator = require('../core/public/traverseBreadthFir
 
 describe('core.public.traverseBreadthFirstGenerator', () => {
   beforeAll(() => {
+    setState(graph => {
+      graph.nodes = {};
+      graph.edges = {};
+      return graph;
+    });
     createTestGraph();
   });
   test('exports', () => {

@@ -1,10 +1,13 @@
 const traverseBreadthFirstGenerator = require('./traverseBreadthFirstGenerator');
 
-const getNodesByDistanceTo = ({ sourceNodeID, hops }) => {
+const getNodesByDistanceTo = ({ sourceNodeID, hops }, stateManipulators) => {
   const result = [];
-  const traverse = traverseBreadthFirstGenerator({
-    startingNodeID: sourceNodeID
-  });
+  const traverse = traverseBreadthFirstGenerator(
+    {
+      startingNodeID: sourceNodeID
+    },
+    stateManipulators
+  );
   let traversalResult = traverse.next();
   // console.warn(traversalResult.value);
   let reachedNextLevel = traversalResult.value.hops > hops;

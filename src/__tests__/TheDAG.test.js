@@ -45,11 +45,8 @@ describe('TheDAG', () => {
     expect(aDAG).toMatchSnapshot();
   });
 
-  test('public methods', () => {
-    const getStateManipulators = require('../core/private/_getStateManipulators');
-    const aDAG = new TheDAG(getStateManipulators());
-
-    /* import graph from any different format */
+  test('import graph from any different format', () => {
+    const aDAG = new TheDAG();
     const inputGraphWithDifferentFormat = {
       nodes: [1, 2, 3, 4, 5],
       edges: [
@@ -69,97 +66,87 @@ describe('TheDAG', () => {
     expect(aDAG.toJS()).toMatchSnapshot(
       'import graph from any different format'
     );
-    aDAG.destroy();
-    /* Create simple graph */
-    createTestGraph(aDAG, 'simple');
-    expect(aDAG.toJS()).toMatchSnapshot('Create simple graph');
+  });
 
-    /* Check if node exists */
+  test('Create simple graph ', () => {
+    const aDAG = new TheDAG();
+    createTestGraph(aDAG, 'simple');
+    expect(aDAG.toJS()).toMatchSnapshot();
     expect(aDAG.nodeExists(1)).toBe(true);
     expect(aDAG.nodeExists({ nodeID: 1 })).toBe(true);
+  });
 
-    /* Get edge ID */
+  test('Can get edgeID by loose source and target objects', () => {
+    const aDAG = new TheDAG();
+    createTestGraph(aDAG, 'simple');
     expect(aDAG.getEdgeID({ source: 1, target: 2 })).toBe('1_2');
     expect(
       aDAG.getEdgeID({ source: { nodeID: 1 }, target: { nodeID: 2 } })
     ).toBe('1_2');
+  });
 
-    /* Destroy graph */
+  test('can destroy graph nodes and edges', () => {
+    const aDAG = new TheDAG();
+    createTestGraph(aDAG, 'simple');
     aDAG.destroy();
     const nodeIDs = Object.keys(aDAG.toJS().nodes);
     expect(nodeIDs.length).toBe(0);
     const edgeIDs = Object.keys(aDAG.toJS().edges);
     expect(edgeIDs.length).toBe(0);
+  });
 
-    /* Create lessSimple graph */
+  test('can create less simple graph', () => {
+    const aDAG = new TheDAG();
     createTestGraph(aDAG, 'lessSimple');
-    expect(aDAG.toJS()).toMatchSnapshot('Create lessSimple graph');
-
-    /* Get distance or number of hops required to go from one node to another */
+    expect(aDAG.toJS()).toMatchSnapshot();
+  });
+  test('Get distance or number of hops required to go from one node to another', () => {
+    const aDAG = new TheDAG();
+    createTestGraph(aDAG, 'lessSimple');
     const distanceFromNodeOneToNodeTwo = aDAG.getDistanceTo({
       sourceNodeID: 1,
       targetNodeID: 2
     });
     expect(distanceFromNodeOneToNodeTwo).toBe(2);
-
-    /* Get edge by source and target ids */
+  });
+  test('Get edge by loose source and target ', () => {
+    const aDAG = new TheDAG();
+    createTestGraph(aDAG, 'lessSimple');
     const edgeFromOneToThree = aDAG.getEdge({
       source: 1,
       target: 3
     });
-    expect(edgeFromOneToThree).toMatchSnapshot(
-      'Get edge by source and target ids'
-    );
-
-    /* Get edge by source and target nodes */
+    expect({ edgeFromOneToThree }).toMatchSnapshot();
     const edgeFromOneToThreeUsingNodes = aDAG.getEdge({
       source: { nodeID: 1, nodeData: {} },
       target: { nodeID: 3, nodeData: {} }
     });
     expect(edgeFromOneToThree).toEqual(edgeFromOneToThreeUsingNodes);
-
-    /* Get all DAG edges */
+  });
+  test('Get all DAG edges', () => {
+    const aDAG = new TheDAG();
+    createTestGraph(aDAG, 'lessSimple');
     const allDAGEdges = aDAG.getEdges();
-    expect(allDAGEdges).toMatchSnapshot('Get all DAG edges');
-
-    /* Get all DAG nodes */
+    expect(allDAGEdges).toMatchSnapshot();
+  });
+  test('Get all DAG nodes', () => {
+    const aDAG = new TheDAG();
+    createTestGraph(aDAG, 'lessSimple');
     const allDAGNodes = aDAG.getNodes();
     expect(allDAGNodes).toMatchSnapshot('Get all DAG nodes');
-
-    /* Get node by id */
+  });
+  test('Get node by id', () => {
+    const aDAG = new TheDAG();
+    createTestGraph(aDAG, 'lessSimple');
     const nodeOne = aDAG.getNode({
       nodeID: 1,
       nodeData: {}
     });
     expect(nodeOne).toMatchSnapshot('Get node by id');
-
-    /* Get nodes by relative distance */
-    const nodesTwoHopsAway = aDAG.getNodesByDistanceTo({
-      sourceNodeID: 1,
-      hops: 2
-    });
-    expect(nodesTwoHopsAway).toMatchSnapshot('Get nodes by relative distance');
-
-    /* Check for acyclicity and get topologically sorted array */
-    const { isAcyclic, topologicallySortedNodeIDs } = aDAG.isAcyclic();
-    expect({ isAcyclic, topologicallySortedNodeIDs }).toMatchSnapshot(
-      'Check for acyclicity and get topologically sorted array'
-    );
-
-    /* Traverse the graph breadth first synchronously */
-    const visitNode = jest.fn();
-    const syncTraversalResult = aDAG.traverseBreadthFirst({
-      startingNodeID: 1,
-      visitNode
-    });
-    expect(syncTraversalResult).toMatchSnapshot(
-      'Traverse the graph breadth first synchronously'
-    );
-    expect(visitNode.mock.calls).toMatchSnapshot(
-      'Traverse the graph breadth first synchronously visitNode calls'
-    );
-
-    /* Traverse the graph breadth first using generators */
+  });
+  test('Traverse the graph breadth first', () => {
+    const aDAG = new TheDAG();
+    createTestGraph(aDAG, 'lessSimple');
     const nodeIterator = aDAG.traverseBreadthFirstGenerator({
       startingNodeID: 1
     });
@@ -169,39 +156,77 @@ describe('TheDAG', () => {
       orderedNodes.push(currentNode.value);
       currentNode = nodeIterator.next();
     }
+    const visitNode = jest.fn();
+    const syncTraversalResult = aDAG.traverseBreadthFirst({
+      startingNodeID: 1,
+      visitNode
+    });
+    expect(syncTraversalResult).toMatchSnapshot();
+    expect(visitNode.mock.calls).toMatchSnapshot();
     expect(orderedNodes).toEqual(syncTraversalResult);
+  });
+  test('Get nodes by relative distance', () => {
+    const aDAG = new TheDAG();
+    createTestGraph(aDAG, 'lessSimple');
+    const nodesTwoHopsAway = aDAG.getNodesByDistanceTo({
+      sourceNodeID: 1,
+      hops: 2
+    });
+    expect(nodesTwoHopsAway).toMatchSnapshot();
+  });
+  test('Check for acyclicity and get topologically sorted array', () => {
+    const aDAG = new TheDAG();
+    createTestGraph(aDAG, 'lessSimple');
+    const { isAcyclic, topologicallySortedNodeIDs } = aDAG.isAcyclic();
+    expect({ isAcyclic, topologicallySortedNodeIDs }).toMatchSnapshot();
+  });
 
-    /* Traverse the graph depth first using generators */
-    const TDF = () => {
-      const nodeIterator = aDAG.traverseDepthFirstGenerator({
-        startingNodeID: 1
-      });
-      let currentNode = nodeIterator.next();
-      let orderedNodes = [];
-      while (!currentNode.done) {
-        orderedNodes.push(currentNode.value);
-        currentNode = nodeIterator.next();
-      }
-      expect(orderedNodes).toMatchSnapshot();
-    };
-    TDF();
-
-    /* Traverse the graph however u want */
-    const TDP = () => {
-      const nodeIterator = aDAG.traverseDynamicPathGenerator({
-        startingNodeID: 1
-      });
-      let currentNode = nodeIterator.next();
-      // console.warn(currentNode);
-      let nextNode = nodeIterator.next(
-        currentNode.value.visitedNode.possibleTargets[0]
-      );
-      expect(nextNode).toMatchSnapshot();
-      nextNode = nodeIterator.next(
-        nextNode.value.visitedNode.possibleTargets[0]
-      );
-      expect(nextNode).toMatchSnapshot();
-    };
-    TDP();
+  test('Traverse the graph depth first using generators', () => {
+    const aDAG = new TheDAG();
+    createTestGraph(aDAG, 'lessSimple');
+    const nodeIterator = aDAG.traverseDepthFirstGenerator({
+      startingNodeID: 1
+    });
+    let currentNode = nodeIterator.next();
+    let orderedNodes = [];
+    while (!currentNode.done) {
+      orderedNodes.push(currentNode.value);
+      currentNode = nodeIterator.next();
+    }
+    expect(orderedNodes).toMatchSnapshot();
+  });
+  test('Traverse the graph however u want', () => {
+    const aDAG = new TheDAG();
+    createTestGraph(aDAG, 'lessSimple');
+    const nodeIterator = aDAG.traverseDynamicPathGenerator({
+      startingNodeID: 1
+    });
+    let currentNode = nodeIterator.next();
+    // console.warn(currentNode);
+    let nextNode = nodeIterator.next(
+      currentNode.value.visitedNode.possibleTargets[0]
+    );
+    expect(nextNode).toMatchSnapshot();
+    nextNode = nodeIterator.next(nextNode.value.visitedNode.possibleTargets[0]);
+    expect(nextNode).toMatchSnapshot();
+  });
+  test('public methods', () => {
+    //   /* Traverse the graph however u want */
+    //   const TDP = () => {
+    //     const nodeIterator = aDAG.traverseDynamicPathGenerator({
+    //       startingNodeID: 1
+    //     });
+    //     let currentNode = nodeIterator.next();
+    //     // console.warn(currentNode);
+    //     let nextNode = nodeIterator.next(
+    //       currentNode.value.visitedNode.possibleTargets[0]
+    //     );
+    //     expect(nextNode).toMatchSnapshot();
+    //     nextNode = nodeIterator.next(
+    //       nextNode.value.visitedNode.possibleTargets[0]
+    //     );
+    //     expect(nextNode).toMatchSnapshot();
+    //   };
+    //   TDP();
   });
 });
