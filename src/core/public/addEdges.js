@@ -5,11 +5,12 @@ const addEdges = (edges = [], stateManipulators) => {
   const { getState, setState } = getStateManipulators(stateManipulators);
   const state = getState();
   edges.forEach(edge => {
-    const { source, target } = edge;
+    const { source, target, edgeData: providedEdgeData } = edge;
     const { edgeID, edgeData, sourceID, targetID } = privateMethods.createEdge(
       {
         source,
-        target
+        target,
+        edgeData: providedEdgeData
       },
       { getState }
     );
