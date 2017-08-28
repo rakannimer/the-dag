@@ -8,13 +8,14 @@ describe('core.public.addEdges', () => {
   });
   test('addEdges throws if source and/or target are not registered nodes in state', () => {
     const stateHandlers = getStateManipulators();
+    addNodes([{ nodeID: 1 }], stateHandlers);
     try {
       addEdges([{ source: 1, target: 2 }], stateHandlers);
     } catch (err) {
       expect(err.message).toMatchSnapshot();
     }
     try {
-      addEdges([{ target: 10, source: 2 }], stateHandlers);
+      addEdges([{ source: 2, target: 1 }], stateHandlers);
     } catch (err) {
       expect(err.message).toMatchSnapshot();
     }

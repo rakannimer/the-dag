@@ -13,7 +13,6 @@ const addEdges = (edges = [], stateManipulators) => {
       },
       { getState }
     );
-
     const edgeExists = edgeID in state.edges;
     if (edgeExists) return;
     setState(stateToUpdate => {
@@ -21,6 +20,15 @@ const addEdges = (edges = [], stateManipulators) => {
       return stateToUpdate;
     });
     const sourceNode = state.nodes[sourceID];
+
+    if (typeof sourceNode === 'undefined') {
+      throw new Error(
+        'Couldnt find source node at edge ' +
+          JSON.stringify(edge, null, 2) +
+          ' \n Nodes in memory : ' +
+          JSON.stringify(state.nodes)
+      );
+    }
     setState(stateToUpdate => {
       stateToUpdate.nodes[sourceID] = privateMethods.addPossibleTargets({
         sourceNode,
@@ -30,6 +38,14 @@ const addEdges = (edges = [], stateManipulators) => {
     });
 
     const targetNode = state.nodes[targetID];
+    if (typeof targetNode === 'undefined') {
+      throw new Error(
+        'Couldnt find target node at edge ' +
+          JSON.stringify(edge, null, 2) +
+          ' \n Nodes in memory : ' +
+          JSON.stringify(state.nodes)
+      );
+    }
     setState(stateToUpdate => {
       stateToUpdate.nodes[targetID] = privateMethods.addPossibleSources({
         targetNode,

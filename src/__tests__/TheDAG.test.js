@@ -185,5 +185,23 @@ describe('TheDAG', () => {
       expect(orderedNodes).toMatchSnapshot();
     };
     TDF();
+
+    /* Traverse the graph however u want */
+    const TDP = () => {
+      const nodeIterator = aDAG.traverseDynamicPathGenerator({
+        startingNodeID: 1
+      });
+      let currentNode = nodeIterator.next();
+      // console.warn(currentNode);
+      let nextNode = nodeIterator.next(
+        currentNode.value.visitedNode.possibleTargets[0]
+      );
+      expect(nextNode).toMatchSnapshot();
+      nextNode = nodeIterator.next(
+        nextNode.value.visitedNode.possibleTargets[0]
+      );
+      expect(nextNode).toMatchSnapshot();
+    };
+    TDP();
   });
 });

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Custom traversal depending on the passed node id 1`] = `
+Object {
+  "done": false,
+  "value": Object {
+    "visitedNode": Object {
+      "nodeData": Object {},
+      "nodeID": 3,
+      "possibleSources": Array [
+        1,
+        4,
+      ],
+      "possibleTargets": Array [
+        5,
+        6,
+      ],
+    },
+  },
+}
+`;
+
+exports[`FSM started 1`] = `
+Object {
+  "done": false,
+  "value": Object {
+    "visitedNode": Object {
+      "nodeData": Object {
+        "some": "data",
+      },
+      "nodeID": 1,
+      "possibleTargets": Array [
+        3,
+        4,
+      ],
+    },
+  },
+}
+`;
+
+exports[`Throws when no argument is provided to next 1`] = `"Invalid Transition : nextNodeID not specified undefined"`;
+
+exports[`Throws when trying to go unconnected node 1`] = `"Invalid Transition : Trying to visit node 10 from 3 "`;
+
+exports[`core.public.traverseDynamicPathGenerator exports 1`] = `[Function]`;

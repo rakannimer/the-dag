@@ -170,6 +170,47 @@ class TheDAG {
   }
 
   /**
+    * 
+    * Allows you to direct the graph traversal, based on node data and possible targets.
+    * @param {Object}    input 
+    * @param {string}    input.startingNodeID - ID of the node from which to start traversing
+    * @param {function}  input.visitNode - function called everytime a new node is traversed
+    * @memberof TheDAG
+    * @yields {Object} generatorOutput
+    * @yields {function} generatorOutput.next - First call to start the traversal based on the starting node ID provided. After that next requires the next nodeID to go to.
+    * @yields {boolean} generatorOutput.done - Reached sink, done traversing.
+    * @yields {Object} generatorOutput.value - Node.
+    * @yields {string} generatorOutput.value.nodeID - Traversed node ID.
+    * @yields {string} generatorOutput.value.nodeData - Traversed node data.
+    * @example 
+    *
+    * const nodeIterator = traverseDynamicPathGenerator({
+    *   startingNodeID: 1
+    * });
+    * 
+    *  expect(nodeIterator.next()).toMatchSnapshot('FSM started');
+    *  expect(nodeIterator.next(3)).toMatchSnapshot(
+    *    'Custom traversal depending on the passed node id'
+    *  );
+    *  try {
+    *    nodeIterator.next(10);
+    *  } catch (err) {
+    *    expect(err.message).toMatchSnapshot(
+    *     'Throws when trying to go unconnected node'
+    *    );
+    *  }
+    *    */
+  *traverseDynamicPathGenerator({ startingNodeID, visitNode = () => null }) {
+    yield* publicMethods.traverseDynamicPathGenerator(
+      {
+        startingNodeID,
+        visitNode
+      },
+      this.stateManipulators
+    );
+  }
+
+  /**
    * 
    * Traverses the graph breadth first yielding nodes as it crawls it. Good for large graphs as it doesnt store it all in memory
    * @param {Object}    input 

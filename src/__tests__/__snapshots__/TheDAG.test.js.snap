@@ -427,6 +427,43 @@ Array [
 ]
 `;
 
+exports[`TheDAG public methods 2`] = `
+Object {
+  "done": false,
+  "value": Object {
+    "visitedNode": Object {
+      "nodeData": Object {},
+      "nodeID": 3,
+      "possibleSources": Array [
+        1,
+      ],
+      "possibleTargets": Array [
+        5,
+        6,
+      ],
+    },
+  },
+}
+`;
+
+exports[`TheDAG public methods 3`] = `
+Object {
+  "done": false,
+  "value": Object {
+    "visitedNode": Object {
+      "nodeData": Object {},
+      "nodeID": 5,
+      "possibleSources": Array [
+        3,
+      ],
+      "possibleTargets": Array [
+        8,
+      ],
+    },
+  },
+}
+`;
+
 exports[`Traverse the graph breadth first synchronously 1`] = `
 Array [
   Object {

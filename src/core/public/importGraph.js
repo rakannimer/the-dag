@@ -5,9 +5,9 @@ const importGraph = (
   {
     nodes,
     edges,
-    nodeIDGenerator,
-    edgeSourceIDGenerator,
-    edgeTargetIDGenerator
+    nodeIDGenerator = node => node,
+    edgeSourceIDGenerator = edge => edge.source,
+    edgeTargetIDGenerator = edge => edge.target
   },
   stateManipulators
 ) => {
@@ -21,6 +21,7 @@ const importGraph = (
     };
   });
   addNodes(theDAGFormatNodes, stateManipulators);
+
   addEdges(theDAGFormatEdges, stateManipulators);
 };
 

@@ -13,6 +13,7 @@ const nodeExists = require('./nodeExists');
 const traverseBreadthFirst = require('./traverseBreadthFirst');
 const traverseBreadthFirstGenerator = require('./traverseBreadthFirstGenerator');
 const traverseDepthFirstGenerator = require('./traverseDepthFirstGenerator');
+const traverseDynamicPathGenerator = require('./traverseDynamicPathGenerator');
 const importGraph = require('./importGraph');
 
 module.exports = {
@@ -32,6 +33,7 @@ module.exports = {
     traverseBreadthFirst,
     traverseBreadthFirstGenerator,
     traverseDepthFirstGenerator,
+    traverseDynamicPathGenerator,
     importGraph
   }
 };

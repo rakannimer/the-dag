@@ -724,7 +724,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="TheDAG.js.html">TheDAG.js</a>, <a href="TheDAG.js.html#line278">line 278</a>
+        <a href="TheDAG.js.html">TheDAG.js</a>, <a href="TheDAG.js.html#line319">line 319</a>
     </li></ul></dd>
     
 
@@ -945,7 +945,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="TheDAG.js.html">TheDAG.js</a>, <a href="TheDAG.js.html#line227">line 227</a>
+        <a href="TheDAG.js.html">TheDAG.js</a>, <a href="TheDAG.js.html#line268">line 268</a>
     </li></ul></dd>
     
 
@@ -2102,7 +2102,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="TheDAG.js.html">TheDAG.js</a>, <a href="TheDAG.js.html#line245">line 245</a>
+        <a href="TheDAG.js.html">TheDAG.js</a>, <a href="TheDAG.js.html#line286">line 286</a>
     </li></ul></dd>
     
 
@@ -2591,7 +2591,7 @@ If it is cyclic : it returns the ID of the node responsible for the cyclicity of
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="TheDAG.js.html">TheDAG.js</a>, <a href="TheDAG.js.html#line268">line 268</a>
+        <a href="TheDAG.js.html">TheDAG.js</a>, <a href="TheDAG.js.html#line309">line 309</a>
     </li></ul></dd>
     
 
@@ -3400,7 +3400,7 @@ const { isAcyclic, topologicallySortedNodeIDs } = myDAG.isAcyclic()</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="TheDAG.js.html">TheDAG.js</a>, <a href="TheDAG.js.html#line185">line 185</a>
+        <a href="TheDAG.js.html">TheDAG.js</a>, <a href="TheDAG.js.html#line226">line 226</a>
     </li></ul></dd>
     
 
@@ -3709,7 +3709,7 @@ const { isAcyclic, topologicallySortedNodeIDs } = myDAG.isAcyclic()</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="TheDAG.js.html">TheDAG.js</a>, <a href="TheDAG.js.html#line208">line 208</a>
+        <a href="TheDAG.js.html">TheDAG.js</a>, <a href="TheDAG.js.html#line249">line 249</a>
     </li></ul></dd>
     
 
@@ -3840,6 +3840,354 @@ const { isAcyclic, topologicallySortedNodeIDs } = myDAG.isAcyclic()</code></pre>
 
 
         
+            
+
+    
+
+    
+    <h4 class="name" id="traverseDynamicPathGenerator"><span class="type-signature">(generator) </span>traverseDynamicPathGenerator<span class="signature">(input)</span><span class="type-signature"> &rarr; {Object|function|boolean|Object|string|string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Allows you to direct the graph traversal, based on node data and possible targets.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>input</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>startingNodeID</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>ID of the node from which to start traversing</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>visitNode</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>function called everytime a new node is traversed</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="TheDAG.js.html">TheDAG.js</a>, <a href="TheDAG.js.html#line203">line 203</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Yields:</h5>
+<ul>
+        <li>
+<div class="param-desc">
+    generatorOutput
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    generatorOutput.next - First call to start the traversal based on the starting node ID provided. After that next requires the next nodeID to go to.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">function</span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    generatorOutput.done - Reached sink, done traversing.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    generatorOutput.value - Node.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    generatorOutput.value.nodeID - Traversed node ID.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+</li>
+    
+        <li>
+<div class="param-desc">
+    generatorOutput.value.nodeData - Traversed node data.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+</li>
+    </ul>
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const nodeIterator = traverseDynamicPathGenerator({
+  startingNodeID: 1
+});
+
+ expect(nodeIterator.next()).toMatchSnapshot('FSM started');
+ expect(nodeIterator.next(3)).toMatchSnapshot(
+   'Custom traversal depending on the passed node id'
+ );
+ try {
+   nodeIterator.next(10);
+ } catch (err) {
+   expect(err.message).toMatchSnapshot(
+    'Throws when trying to go unconnected node'
+   );
+ }</code></pre>
+
+
+
+        
     
 
     
@@ -3861,7 +4209,7 @@ const { isAcyclic, topologicallySortedNodeIDs } = myDAG.isAcyclic()</code></pre>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Sat Aug 26 2017 12:43:46 GMT+0300 (EEST)
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.4</a> on Mon Aug 28 2017 15:43:24 GMT+0300 (EEST)
 </footer>
 
 <script> prettyPrint(); </script>
