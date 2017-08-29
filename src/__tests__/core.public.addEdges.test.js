@@ -43,7 +43,16 @@ describe('core.public.addEdges', () => {
     const stateHandlers = getStateManipulators();
     addNodes([{ nodeID: 1 }, { nodeID: 2 }], stateHandlers);
     // let state = stateHandlers.getState();
-    addEdges([{ source: { nodeID: 1 }, target: { nodeID: 2 } }], stateHandlers);
+    addEdges(
+      [
+        {
+          source: { nodeID: 1 },
+          target: { nodeID: 2 },
+          edgeData: { some: 'data' }
+        }
+      ],
+      stateHandlers
+    );
     let state = stateHandlers.getState();
     expect(state).toMatchSnapshot();
   });

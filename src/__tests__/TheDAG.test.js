@@ -20,7 +20,7 @@ const createTestGraph = (aDAG, type) => {
       ]);
 
       aDAG.addEdges([
-        { source: 1, target: 3 },
+        { source: 1, target: 3, edgeData: { some: 'edgeData' } },
         { source: 1, target: 4 },
         { source: 3, target: 5 },
         { source: 3, target: 6 },

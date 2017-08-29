@@ -67,9 +67,10 @@ class TheDAG {
   /**
    * Adds Edges to graph.
    * @param {Object[]} Edges
-   * @param {Object} Edges.PartialEdge { source, target } 
+   * @param {Object} Edges.PartialEdge { source, target, edgeData } 
    * @param {Node | string} PartialEdge.source - Node { nodeID, ...otherStuff} or nodeID string
    * @param {Node | string} PartialEdge.target - Node { nodeID, ...otherStuff} or nodeID string
+   * @param {any} PartialEdge.edgeData
    * @returns {Void} 
    * @memberof TheDAG
    */

@@ -143,7 +143,9 @@ Object {
 exports[`TheDAG Get all DAG edges 1`] = `
 Object {
   "1_3": Object {
-    "edgeData": Object {},
+    "edgeData": Object {
+      "some": "edgeData",
+    },
     "edgeID": "1_3",
     "sourceID": 1,
     "targetID": 3,
@@ -190,7 +192,9 @@ Object {
 exports[`TheDAG Get edge by loose source and target  1`] = `
 Object {
   "edgeFromOneToThree": Object {
-    "edgeData": Object {},
+    "edgeData": Object {
+      "some": "edgeData",
+    },
     "edgeID": "1_3",
     "sourceID": 1,
     "targetID": 3,
@@ -421,7 +425,9 @@ exports[`TheDAG can create less simple graph 1`] = `
 Object {
   "edges": Object {
     "1_3": Object {
-      "edgeData": Object {},
+      "edgeData": Object {
+        "some": "edgeData",
+      },
       "edgeID": "1_3",
       "sourceID": 1,
       "targetID": 3,
