@@ -21,6 +21,16 @@ Adding weights support to edges and the corresponding traversal and utility meth
 yarn add the-dag
 ```
 
+Or from unpkg : 
+
+```html
+  <script src="https://unpkg.com/the-dag@latest/umd/TheDAG.js"></script>
+  <script>
+    const myDAG = new TheDAG();
+  </script>
+```
+
+
 ## [Full API documentation](https://rakannimer.github.io/the-dag/TheDAG.html)
 
 ## Usage
