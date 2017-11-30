@@ -7,7 +7,7 @@
 
 A well-tested data structure to represent data as Directed Unweighted ( for now) Graphs.
 
-## Why not cal it TheDUG then ? 
+## Why not call it TheDUG then ? 
 
 Because its aimed for use cases where the graph is acyclic.
 
