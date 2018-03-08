@@ -1,4 +1,4 @@
 const generateEdgeIDFromSourceAndTargetIDs = ({ sourceID, targetID }) => {
-  return `${sourceID}_${targetID}`;
+  return `${String(sourceID)}_${String(targetID)}`;
 };
 module.exports = generateEdgeIDFromSourceAndTargetIDs;
