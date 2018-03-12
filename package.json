@@ -1,6 +1,6 @@
 {
   "name": "the-dag",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Yet Another Directed Acyclic Graph Implementation ",
   "main": "src/index.js",
   "module": "src/index.js",
@@ -8,7 +8,8 @@
   "author": "Rakan Nimer",
   "license": "MIT",
   "scripts": {
-    "precommit": "npm run prettier && npm run lint  && npm run test && npm run docs",
+    "precommit":
+      "npm run prettier && npm run lint  && npm run test && npm run docs",
     "docs": "jsdoc src/TheDAG.js -c .jsdoc.json -R README.md -d docs/",
     "test": "jest",
     "test-ci": "npm run lint && jest --runInBand --coverage",
