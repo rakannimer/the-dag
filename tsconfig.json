@@ -1,0 +1,20 @@
+{
+  "include": ["./src/"],
+  "compilerOptions": {
+    /* Basic Options */
+    "allowSyntheticDefaultImports": false,
+    "rootDir": "./src",
+    "outDir": "./build/",
+    // "jsx": "react",
+    "declaration": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "es5",
+    // "noEmit": true,
+    // "noUnusedLocals": true,
+    // "noImplicitAny": false,
+    // "noUnusedParameters": true,
+    "skipLibCheck": true,
+    "pretty": true
+  }
+}
