@@ -1,7 +1,7 @@
 {
   "name": "@rakannimer/the-dag",
   "version": "0.1.6",
-  "main": "build/index.js",
+  "main": "src/index.ts",
   "module": "build/index.m.js",
   "types": "build/index.d.ts",
   "scripts": {
