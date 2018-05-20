@@ -17,7 +17,8 @@ export const renderToDot = (
       .map(
         edge =>
           `NODE_${edge.sourceID} -> NODE_${edge.targetID}${renderEdge(edge)}`
-      )}
+      )
+      .join("\n")}
   }
 `;
   return dotString;
