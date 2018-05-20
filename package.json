@@ -1,18 +1,16 @@
 {
   "name": "@rakannimer/the-dag",
-  "version": "0.1.6",
-  "main": "src/index.ts",
-  "module": "build/index.m.js",
-  "types": "build/index.d.ts",
+  "version": "0.1.7",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.m.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "npm run test",
-    "build": "rm -rf ./build/ && tsc && dts-bundle-generator -o build/index.d.ts src/index.ts",
+    "build": "rollup -c",
     "test": "jest --watch --coverage",
     "deploy": "npm run build && npm publish --access public"
   },
-  "files": [
-    "build/"
-  ],
+  "files": ["build/"],
   "repository": {
     "type": "git",
     "url": "https://github.com/rakannimer/the-dag"
@@ -21,27 +19,18 @@
   "devDependencies": {
     "@types/jest": "^22.2.2",
     "comment-json": "^1.1.3",
-    "dts-bundle-generator": "^1.1.0",
     "jest": "^22.3.0",
-    "microbundle": "^0.4.3",
     "parcel-bundler": "^1.6.1",
+    "rollup": "^0.59.1",
+    "rollup-plugin-typescript2": "^0.14.0",
     "typescript": "^2.7.2"
   },
   "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
+    "moduleFileExtensions": ["ts", "tsx", "js"],
     "transform": {
       "^.+\\.(ts|tsx)$": "<rootDir>/preprocessor.js"
     },
-    "testMatch": [
-      "**/__tests__/*.(ts|tsx|js)"
-    ]
+    "testMatch": ["**/__tests__/*.(ts|tsx|js)"]
   },
-  "dependencies": {
-    "fifo": "^2.3.0",
-    "toposort": "^1.0.6"
-  }
+  "dependencies": {}
 }

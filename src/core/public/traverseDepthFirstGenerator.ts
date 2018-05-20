@@ -1,4 +1,4 @@
-import FIFO from "fifo";
+import { FIFO } from "../../utils/fifo";
 import { GraphNode, GraphStateManipulators, TraverseArgs } from "../../types";
 import { privateMethods } from "../private/";
 

@@ -8,7 +8,12 @@ module.exports = {
       const tsConfig = json.parse(
         fs.readFileSync("./tsconfig.json").toString()
       );
-      return tsc.transpile(src, tsConfig.compilerOptions, path, []);
+      return tsc.transpile(
+        src,
+        { ...tsConfig.compilerOptions, module: "commonjs" },
+        path,
+        []
+      );
     }
     return src;
   }

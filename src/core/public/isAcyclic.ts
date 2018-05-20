@@ -1,4 +1,4 @@
-import * as toposort from "toposort";
+import { toposort } from "../../utils/toposort";
 import { privateMethods } from "../private/";
 import { GraphStateManipulators } from "../../types";
 const { getStateManipulators } = privateMethods;

@@ -1,4 +1,4 @@
-import * as FIFO from "fifo";
+import { FIFO } from "../../utils/fifo";
 import { GraphNode, GraphStateManipulators, TraverseArgs } from "../../types";
 import { privateMethods } from "../private/";
 
@@ -12,7 +12,7 @@ export const traverseDynamicPathGenerator = function*(
   const visitedNodes: {
     [nodeID: string]: boolean;
   } = {};
-  const fifo = FIFO();
+  const fifo = new FIFO();
   visitedNodes[startingNodeID] = true;
   fifo.push({ nodeID: startingNodeID, hops: 0 });
   while (fifo.length > 0) {

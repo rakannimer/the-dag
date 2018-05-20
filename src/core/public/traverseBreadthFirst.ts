@@ -1,4 +1,4 @@
-import * as FIFO from "fifo";
+import { FIFO } from "../../utils/fifo";
 import { GraphNode, GraphStateManipulators, TraverseArgs } from "../../types";
 import { privateMethods } from "../private/";
 
@@ -12,7 +12,7 @@ export const traverseBreadthFirst = (
   const state = getState();
   const nodesBFT = [];
   const visitedNodes: { [id: string]: boolean } = {};
-  const fifo = FIFO();
+  const fifo = new FIFO();
   fifo.push({ nodeID: startingNodeID, hops: 0 });
   visitedNodes[startingNodeID] = true;
   while (fifo.length > 0) {
