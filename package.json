@@ -10,7 +10,7 @@
     "test": "jest --watch --coverage",
     "deploy": "npm run build && npm publish --access public"
   },
-  "files": ["build/"],
+  "files": ["dist/"],
   "repository": {
     "type": "git",
     "url": "https://github.com/rakannimer/the-dag"
