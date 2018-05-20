@@ -10,13 +10,13 @@ export const renderToDot = (
   digraph g {
     ${Object.keys(nodes)
       .map(nodeID => nodes[nodeID])
-      .map(node => `NODE_${node.nodeID} ${renderNode(node)};`)
+      .map(node => `NODE_${node.nodeID}${renderNode(node)};`)
       .join(" ")}
     ${Object.keys(edges)
       .map(edgeID => edges[edgeID])
       .map(
         edge =>
-          `NODE_${edge.sourceID} -> NODE_${edge.targetID} ${renderEdge(edge)}`
+          `NODE_${edge.sourceID} -> NODE_${edge.targetID}${renderEdge(edge)}`
       )}
   }
 `;
