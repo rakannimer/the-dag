@@ -358,6 +358,15 @@ export class TheDAG {
   destroy() {
     return publicMethods.destroy(this.stateManipulators);
   }
+
+  fromJS({ nodes, edges }) {
+    this.stateManipulators.setState(state => {
+      return {
+        nodes,
+        edges
+      };
+    });
+  }
 }
 
 export default TheDAG;
