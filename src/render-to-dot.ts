@@ -20,4 +20,5 @@ export const renderToDot = (
       )}
   }
 `;
+  return dotString;
 };
